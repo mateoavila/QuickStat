@@ -87,10 +87,10 @@ class _MySignupPageState extends State<MySignupPage> {
               icon: const Icon(Icons.arrow_downward),
               iconSize: 20,
               elevation: 16,
-              style: const TextStyle(color: Colors.deepPurple),
+              style: const TextStyle(color: Colors.blueAccent),
               underline: Container(
                 height: 2,
-                color: Colors.deepPurpleAccent,
+                color: Colors.blueAccent,
               ),
               onChanged: (String? newValue) {
                 setState(() {
