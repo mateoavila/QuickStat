@@ -1,84 +1,108 @@
+import 'package:batterup/signup_page.dart';
+import 'package:batterup/user_view.dart';
 import 'package:flutter/material.dart';
-import 'next_page.dart';
 
-void main() {
-  runApp(const MyApp());
+
+void main(){
+  runApp(MyApp());
+
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  // This widget is the root of your application.
+class MyApp extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page test'),
+      title:'BatterUp',
+      home: LoginPage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
+class LoginPage extends StatefulWidget{
 
-  final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-
-
-  void _incrementCounter() {
-    setState(() {
-
-      _counter++;
-    });
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const MySecondPage(title: 'Second Page',)),
-    );
+  _LoginPageState createState() => _LoginPageState();
   }
 
-  @override
-  Widget build(BuildContext context) {
+  class _LoginPageState extends State<LoginPage>{
 
-    return Scaffold(
-      appBar: AppBar(
+    void _toUserView() {
+      //how to move to a new screen
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const MyUserPage(title: 'BatterUp',)),
+      );
+    }
+    void _toSignup() {
+      //how to move to a new screen
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const MySignupPage(title: 'Sign Up Page',)),
+      );
+    }
 
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'screen 1',
-            ),
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-             Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-
-
-          ],
+    @override
+    // ignore: non_constant_identifier_names
+    Widget build(BuildContext context){
+      return Scaffold(
+        body: SafeArea(
+          child: ListView(
+            padding: EdgeInsets.symmetric(horizontal: 18.0),
+            children: [
+              Column(
+                children: <Widget>[
+                   SizedBox(height: 70,),
+                  Image.asset('assets/batter_silhouette.png', height: 180, width: 180,),
+                  SizedBox(height: 40,),
+                  Text('BatterUp', style: TextStyle(fontSize: 55, color: Colors.blueAccent),)
+                ],
+              ),
+              SizedBox(height: 60.0,),
+               const TextField(
+                decoration: InputDecoration(
+                  labelText: "Email",
+                  labelStyle: TextStyle(fontSize: 20),
+                  filled: true,
+                ),
+              ),
+              SizedBox(height: 20,),
+              const TextField(
+                obscureText: true,
+                decoration: InputDecoration(
+                    labelText: "Password",
+                    labelStyle: TextStyle(fontSize: 20),
+                    filled: true,
+                ),
+              ),
+              SizedBox(height: 20,),
+              Column(
+                children: <Widget>[
+                    ButtonTheme(
+                      height: 50,
+                      minWidth: 400,
+                      disabledColor: Colors.blueAccent,
+                      child:  RaisedButton(
+                        disabledElevation: 4.0,
+                          onPressed: _toUserView, // do things here to check in firebase
+                        child: Text('Login', style: TextStyle(fontSize: 20, color: Colors.white),)
+                      ),
+                    ),
+                  SizedBox(height: 10,),
+                  ButtonTheme(
+                    height: 50,
+                    minWidth: 400,
+                    disabledColor: Colors.blueAccent,
+                    child: RaisedButton(
+                        onPressed: _toSignup,
+                        child: Text('Sign Up', style: TextStyle(fontSize: 20, color: Colors.white),)
+                    ),
+                  )
+                  ],
+              ),
+            ],
+          ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
-  }
+      );
+    }
 }
