@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 class MyUserPage extends StatefulWidget {
   const MyUserPage({Key? key, required this.title}) : super(key: key);
@@ -64,20 +65,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: ListView.builder(
-          itemCount: 5,
-          itemBuilder: (BuildContext context,int index) {
-            Text('My Players', style: TextStyle(color: Colors.blue, fontSize: 25),);
-            return ListTile(
-                leading: const Icon(Icons.sports_baseball),
-                trailing: const Text("at Bat",
-                  style: TextStyle(color: Colors.blue, fontSize: 15),),
-                title: Text("player $index")
-            );
-          }
-      ),
-    );
+    return const PlayerList();
   }
 }
 
@@ -107,6 +95,7 @@ class SearchScreen extends StatelessWidget{
               "Suggested Players",
               style: TextStyle(fontSize: 25, color: Colors.blueAccent),
             ),
+            //PlayerList(), figure out how to make this work
           ],
       ),
       ),
@@ -128,9 +117,8 @@ class SettingsScreen extends StatelessWidget{
 }
 
 
-/* this is jsut the list view
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class PlayerList extends StatelessWidget {
+  const PlayerList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -149,4 +137,4 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
-}*/
+}
