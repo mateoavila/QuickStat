@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'player_list.dart';
+import 'search_screen.dart';
+import 'home_screen.dart';
+import 'settings_screen.dart';
 
 class MyUserPage extends StatefulWidget {
   const MyUserPage({Key? key, required this.title}) : super(key: key);
@@ -31,9 +35,9 @@ class _MyUserPageState extends State<MyUserPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('BatterUp'),
-      ),
+       appBar: AppBar(
+         title: const Text('BatterUp'),
+       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
@@ -60,81 +64,5 @@ class _MyUserPageState extends State<MyUserPage> {
   }
 }
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return const PlayerList();
-  }
-}
-
-class SearchScreen extends StatelessWidget{
-  const SearchScreen({Key? key}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: ListView(
-          padding: const EdgeInsets.symmetric(horizontal: 18.0),
-          children: [
-            const SizedBox(height: 10,),
-            Column(
-              children: const <Widget>[
-              TextField(
-                decoration: InputDecoration(
-                 labelText: "Search",
-                  labelStyle: TextStyle(fontSize: 20),
-                  filled: true,
-                ),
-              ),
-              ],
-            ),
-            const SizedBox(height: 40,),
-            const Text(
-              "Suggested Players",
-              style: TextStyle(fontSize: 25, color: Colors.blueAccent),
-            ),
-            //PlayerList(), figure out how to make this work
-          ],
-      ),
-      ),
-    );
-  }
-}
-
-class SettingsScreen extends StatelessWidget{
-  const SettingsScreen({Key? key}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Text(
-        ' Settings',
-        style: TextStyle(color: Colors.blue, fontSize: 25),
-        ),
-    );
-  }
-}
 
 
-class PlayerList extends StatelessWidget {
-  const PlayerList({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: ListView.builder(
-          itemCount: 5,
-          itemBuilder: (BuildContext context,int index){
-            return ListTile(
-                leading: Icon(Icons.sports_baseball),
-                trailing: Text("at Bat",
-                  style: TextStyle(
-                      color: Colors.blue,fontSize: 15),),
-                title:Text("player $index")
-            );
-          }
-      ),
-    );
-  }
-}
