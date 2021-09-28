@@ -17,7 +17,7 @@ class MyUserPage extends StatefulWidget {
 class _MyUserPageState extends State<MyUserPage> {
   int _selectedIndex = 0;
 
-  static const List<Widget> _widgetOptions = <Widget>[
+  List<Widget> _widgetOptions = <Widget>[
     //the HOME screen index 0
     HomeScreen(),
     //the SEARCH Screen index 1

@@ -4,41 +4,44 @@ import 'package:flutter/material.dart';
 
 
 class SearchScreen extends StatelessWidget{
-  // Future fetchNotes() async{
-  //   var url = 'https://raw.githubusercontent.com/boriszv/json/master/random_example.json'
-  // } figure this out later
 
   const SearchScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      body: ListView.builder(
-          itemBuilder: (context, index){
-            return Card(
-               child: Padding(
-                 padding: const EdgeInsets.only(top: 32, bottom: 32, left: 16, right: 16),
-                 child: Column(
-                   crossAxisAlignment: CrossAxisAlignment.start,
-                   children: <Widget>[
-                     Text(
-                       'Note Title',
-                       style: TextStyle(
-                         fontSize: 22,
-                         fontWeight: FontWeight.bold
-                       ),
-                     ),
-                     Text(
-                       'Note Text',
-                       style: TextStyle(
-                           color: Colors.grey.shade600
-                       ),
-                     )
-                   ],
-                 ),
-               ),
-            );
-          }
-      ),
+    return  Center(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children:   <Widget>[
+          SizedBox(height: 30.0,),
+          // the searchBar
+          Form(
+            child: Container(
+              width: 400,
+              height: 50,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                  border: Border.all(width: 1, color: Colors.blue),
+                  borderRadius: BorderRadius.circular(20)),
+              child: TextFormField(
+                decoration: const InputDecoration(
+                    labelText: "Search",
+                    suffixIcon: Icon(Icons.search),
+                    border: InputBorder.none,
+                    contentPadding: EdgeInsets.all(10)),
+              ),
+            ),
+          ),
+          SizedBox(height: 30.0,),
+          const Text('Suggested Players',
+              style: TextStyle(fontSize: 30, color: Colors.blueAccent)
+          ),
+          SizedBox(height: 15.0,),
+          Expanded(
+            child: PlayerList(),
+          )
+        ],),
     );
   }
 }
