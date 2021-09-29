@@ -19,11 +19,11 @@ class _MyUserPageState extends State<MyUserPage> {
 
   List<Widget> _widgetOptions = <Widget>[
     //the HOME screen index 0
-    HomeScreen(),
+    MyHomePage(title: 'home'),
     //the SEARCH Screen index 1
-    SearchScreen(),
+    MySearchPage(title: 'search'),
     // the SETTINGS Screen index 2
-    SettingsScreen(),
+    MySettingsPage(title: 'settings',),
   ];
 
   void _onItemTapped(int index) {

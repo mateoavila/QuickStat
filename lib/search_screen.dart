@@ -2,10 +2,18 @@ import 'player_list.dart';
 import 'package:flutter/material.dart';
 //import 'package:http/http.dart' as http;
 
+class MySearchPage extends StatefulWidget {
+  const MySearchPage({Key? key, required this.title}) : super(key: key);
 
-class SearchScreen extends StatelessWidget{
+  final String title;
 
-  const SearchScreen({Key? key}) : super(key: key);
+  @override
+  State<MySearchPage> createState() => SearchScreen();
+}
+
+
+class SearchScreen extends State<MySearchPage>{
+
   @override
   Widget build(BuildContext context) {
     return  Center(

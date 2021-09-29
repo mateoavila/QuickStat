@@ -1,7 +1,17 @@
 import 'package:flutter/material.dart';
 import 'player_list.dart';
 
-class HomeScreen extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
+
+  final String title;
+
+  @override
+  State<MyHomePage> createState() => HomeScreen();
+}
+
+
+class HomeScreen extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
