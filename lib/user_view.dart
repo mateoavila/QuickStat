@@ -35,9 +35,9 @@ class _MyUserPageState extends State<MyUserPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       appBar: AppBar(
-         title: const Text('BatterUp'),
-       ),
+      // appBar: AppBar(
+        // title: const Text('BatterUp'),
+       //),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),

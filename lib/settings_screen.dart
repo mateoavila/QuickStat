@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'login_page.dart';
 
 class MySettingsPage extends StatefulWidget {
   const MySettingsPage({Key? key, required this.title}) : super(key: key);
@@ -12,19 +13,33 @@ class MySettingsPage extends StatefulWidget {
 
 class SettingsScreen extends State<MySettingsPage> {
 
+  void _toLogin() {
+    //how to move to a new screen
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => LoginPage()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     String NotificationDropdown = 'All';
     String ViewingDropdown = 'Light';
-    return  Center(
+
+    return Scaffold(
+        appBar: AppBar(
+        title: const Text('Settings'),
+          automaticallyImplyLeading: false,
+    ),
+      body:  Center(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.start,
         children:  <Widget>[
-          Text('Settings',
-              style: TextStyle(fontSize: 30, color: Colors.blueAccent)
-          ),
+          // Text('Settings',
+          //     style: TextStyle(fontSize: 30, color: Colors.blueAccent)
+          // ),
           SizedBox(height: 20.0,),
           Text('notifiation Prefrences',
               style: TextStyle(fontSize: 20,)
@@ -88,9 +103,9 @@ class SettingsScreen extends State<MySettingsPage> {
             height: 30,
             minWidth: 20,
             disabledColor: Colors.blueAccent,
-            child: const RaisedButton(
+            child:  RaisedButton(
                 disabledElevation: 4.0,
-                onPressed: null,
+                onPressed: _toLogin,
                 // do things here to check in firebase
                 child: Text(
                   'Log out',
@@ -99,6 +114,7 @@ class SettingsScreen extends State<MySettingsPage> {
           ),
         ],
       ),
+    ),
     );
   }
 }

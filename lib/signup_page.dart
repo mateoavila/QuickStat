@@ -136,9 +136,7 @@ class _MySignupPageState extends State<MySignupPage> {
                 );
               }).toList(),
             ),
-            SizedBox(
-              height: 20,
-            ),
+            SizedBox(height: 20,),
             Column(
               children: <Widget>[
                 ButtonTheme(

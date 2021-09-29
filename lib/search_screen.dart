@@ -16,13 +16,19 @@ class SearchScreen extends State<MySearchPage>{
 
   @override
   Widget build(BuildContext context) {
-    return  Center(
+
+    return Scaffold(
+        appBar: AppBar(
+        title: const Text('Search'),
+          automaticallyImplyLeading: false,
+    ),
+    body:  Center(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.start,
         children:   <Widget>[
-          SizedBox(height: 30.0,),
+          SizedBox(height: 20.0,),
           // the searchBar
           Form(
             child: Container(
@@ -41,7 +47,7 @@ class SearchScreen extends State<MySearchPage>{
               ),
             ),
           ),
-          SizedBox(height: 30.0,),
+          SizedBox(height: 20.0,),
           const Text('Suggested Players',
               style: TextStyle(fontSize: 30, color: Colors.blueAccent)
           ),
@@ -50,6 +56,7 @@ class SearchScreen extends State<MySearchPage>{
             child: PlayerList(),
           )
         ],),
+    ),
     );
   }
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class PlayerList extends StatelessWidget {
   const PlayerList({Key? key}) : super(key: key);
-  static const List<String> players = [
+  static  List<String> players = [
     'Mookie Betts',
     'Aaron Judge',
     'Mike trout',

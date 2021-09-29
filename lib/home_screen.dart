@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'player_list.dart';
-
+import 'login_page.dart';
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
 
@@ -16,8 +16,13 @@ class HomeScreen extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
 
-    return  Center(
-      child: Column(
+    return Scaffold(
+       appBar: AppBar(
+       title: const Text('BatterUp'),
+         automaticallyImplyLeading: false,
+      ),
+      body: Center(
+        child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.start,
@@ -31,6 +36,7 @@ class HomeScreen extends State<MyHomePage> {
           child: PlayerList(),
         )
       ],),
+    ),
     );
   }
 }
