@@ -14,7 +14,8 @@ class SettingsScreen extends State<MySettingsPage> {
 
   @override
   Widget build(BuildContext context) {
-    String dropdownValue = 'All';
+    String NotificationDropdown = 'All';
+    String ViewingDropdown = 'Light';
     return  Center(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -29,7 +30,7 @@ class SettingsScreen extends State<MySettingsPage> {
               style: TextStyle(fontSize: 20,)
           ),
           DropdownButton<String>(
-            value: dropdownValue,
+            value: NotificationDropdown,
             icon: const Icon(Icons.arrow_downward),
             iconSize: 20,
             elevation: 16,
@@ -40,7 +41,7 @@ class SettingsScreen extends State<MySettingsPage> {
             ),
             onChanged: (String? newValue) {
               setState(() {
-                dropdownValue = newValue!;
+                NotificationDropdown = newValue!;
               });
             },
             items: <String>['All',
@@ -54,12 +55,50 @@ class SettingsScreen extends State<MySettingsPage> {
               );
             }).toList(),
           ),
-          SizedBox(height: 70.0,),
+          SizedBox(height: 30.0,),
           Text('Viewing Prefrences',
               style: TextStyle(fontSize: 20,)
           ),
-
-        ],),
+          DropdownButton<String>(
+            value: ViewingDropdown,
+            icon: const Icon(Icons.arrow_downward),
+            iconSize: 20,
+            elevation: 16,
+            style: const TextStyle(color: Colors.blueAccent),
+            underline: Container(
+              height: 2,
+              color: Colors.blueAccent,
+            ),
+            onChanged: (String? newValue) {
+              setState(() {
+                ViewingDropdown = newValue!;
+              });
+            },
+            items: <String>['Light',
+              'Dark',]
+                .map<DropdownMenuItem<String>>((String value) {
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Text(value, style: TextStyle(fontSize: 20,)),
+              );
+            }).toList(),
+          ),
+          SizedBox(height: 300.0,),
+          ButtonTheme(
+            height: 30,
+            minWidth: 20,
+            disabledColor: Colors.blueAccent,
+            child: const RaisedButton(
+                disabledElevation: 4.0,
+                onPressed: null,
+                // do things here to check in firebase
+                child: Text(
+                  'Log out',
+                  style: TextStyle(fontSize: 10, color: Colors.white),
+                )),
+          ),
+        ],
+      ),
     );
   }
 }
