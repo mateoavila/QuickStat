@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'player.dart';
 
 class PlayerList extends StatelessWidget {
-  const PlayerList({Key? key}) : super(key: key);
-  static  List<String> players = [
+  //const PlayerList({Key? key}) : super(key: key);
+
+  var mookie = Player('mookie betts', 'Home Run');
+
+
+  List<String> players = [
     'Mookie Betts',
     'Aaron Judge',
     'Mike trout',
@@ -29,6 +34,7 @@ class PlayerList extends StatelessWidget {
     'Jacob Degrom',
   ];
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,3 +53,30 @@ class PlayerList extends StatelessWidget {
     );
   }
 }
+
+/*
+'Mookie Betts',
+'Aaron Judge',
+'Mike trout',
+'Fernando Tatis jr.',
+'Brandon Crawford',
+'matt Chapman',
+'Adolis Garcia',
+'Zac Gallen',
+'Christian Yellich',
+'Luis Robert',
+'Ian Happ',
+'C.J. Cron',
+'Nick Castiallnos',
+'Shane Beiber',
+'Austin Riley',
+'Randy Arozarano',
+'Kike Hernandez',
+'vlad Jr.',
+'Jose Rameriez',
+'Bo Bichett',
+'Trea Turner',
+'Justin Turner',
+'Shohe Ohtani',
+'Jacob Degrom',
+*/

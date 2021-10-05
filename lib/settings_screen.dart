@@ -13,6 +13,9 @@ class MySettingsPage extends StatefulWidget {
 
 class SettingsScreen extends State<MySettingsPage> {
 
+  String NotificationDropdown = 'All';
+  String ViewingDropdown = 'Light';
+
   void _toLogin() {
     //how to move to a new screen
     Navigator.push(
@@ -23,8 +26,6 @@ class SettingsScreen extends State<MySettingsPage> {
 
   @override
   Widget build(BuildContext context) {
-    String NotificationDropdown = 'All';
-    String ViewingDropdown = 'Light';
 
     return Scaffold(
         appBar: AppBar(
