@@ -1,6 +1,6 @@
 class Player {
   String name;
-  String atBat;
+  String pa;
 
-  Player(this.name, this.atBat);
+  Player(this.name, this.pa);
 }

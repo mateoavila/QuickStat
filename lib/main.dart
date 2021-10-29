@@ -1,3 +1,4 @@
+// @dart=2.9
 import 'login_page.dart';
 import 'package:batterup/signup_page.dart';
 import 'package:batterup/user_view.dart';
