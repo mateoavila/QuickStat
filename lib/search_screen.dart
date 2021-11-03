@@ -73,6 +73,11 @@ class SearchScreen extends State<MySearchPage> {
                       border: InputBorder.none,
                       contentPadding: EdgeInsets.all(10)),
                   controller: myController,
+                  onFieldSubmitted: (value) async {
+                    name = await callApi(myController.text);
+                    setState(() {});
+                  },
+                  textInputAction: TextInputAction.search,
                 ),
               ),
             ),
@@ -97,15 +102,6 @@ class SearchScreen extends State<MySearchPage> {
             )
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-
-          name = await callApi(myController.text);
-          setState(() {});
-        },
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }

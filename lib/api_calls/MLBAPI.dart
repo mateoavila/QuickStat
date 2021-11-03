@@ -1,4 +1,3 @@
-// ignore: file_names
 import 'dart:convert';
 
 import 'package:batterup/api_calls/queryResults_api.dart';
