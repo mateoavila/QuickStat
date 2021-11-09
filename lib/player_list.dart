@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'player.dart';
+import 'players.dart';
 
 class PlayerList extends StatelessWidget {
 
-   List<Player> myPlayers = <Player>[
-    Player('Mookie Betts', 'Home Run'),
-    Player('Austin Riley', 'strike out'),
-    Player('Trea Turner', 'single'),
-    Player('Fernando Tatis jr', 'Home Run'),
-    Player('Adolis Garcia', 'flyout'),
-    Player('Jose Rameriez', 'double'),
-  ];
+   Map<String, String> myPlayers = Map();
 
 
+   void addToMyPlayers(String name) {
+     print(myPlayers.length);
+     myPlayers[name] = "upcomming";
+     print(name + " added");
+     print(myPlayers.length);
+
+   }
 
   @override
   Widget build(BuildContext context) {
@@ -21,11 +21,11 @@ class PlayerList extends StatelessWidget {
           itemCount: myPlayers.length,
           itemBuilder: (BuildContext context,int index){
             return ListTile(
-                leading: Icon(Icons.sports_baseball),
-                trailing: Text(myPlayers[index].pa,
-                  style: TextStyle(
+                leading: const Icon(Icons.sports_baseball),
+                trailing: Text(myPlayers.values.elementAt(index),
+                  style: const TextStyle(
                       color: Colors.blue,fontSize: 15),),
-                title:Text(myPlayers[index].name)
+                title:Text(myPlayers.keys.elementAt(index))
             );
           }
       ),
@@ -33,7 +33,14 @@ class PlayerList extends StatelessWidget {
   }
 }
 
+
+
+
 /*
+
+
+
+
 'Mookie Betts',
 'Aaron Judge',
 'Mike trout',

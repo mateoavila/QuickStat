@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'player_list.dart';
+import '../player_list.dart';
 import 'search_screen.dart';
 import 'home_screen.dart';
 import 'settings_screen.dart';
@@ -16,6 +16,8 @@ class MyUserPage extends StatefulWidget {
 
 class _MyUserPageState extends State<MyUserPage> {
   int _selectedIndex = 0;
+
+
 
   final List<Widget> _widgetOptions = <Widget>[
     //the HOME screen index 0

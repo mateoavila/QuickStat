@@ -1,7 +1,7 @@
 // @dart=2.9
-import 'login_page.dart';
-import 'package:batterup/signup_page.dart';
-import 'package:batterup/user_view.dart';
+import 'pages/login_page.dart';
+import 'package:batterup/pages/signup_page.dart';
+import 'package:batterup/pages/user_view.dart';
 import 'package:flutter/material.dart';
 
 //add this text

@@ -1,7 +1,10 @@
-import 'api_calls/MLBAPI.dart';
+import 'package:batterup/pages/home_screen.dart';
+
+import 'Services.dart';
+import 'api_calls/mlbapi.dart';
 import 'player_list.dart';
 import 'package:flutter/material.dart';
-import 'player.dart';
+import 'players.dart';
 
 class MySearchPage extends StatefulWidget {
   const MySearchPage({Key? key, required this.title}) : super(key: key);
@@ -9,43 +12,50 @@ class MySearchPage extends StatefulWidget {
   final String title;
 
   @override
-  State<MySearchPage> createState() => SearchScreen();
+  State<MySearchPage> createState() => SearchScreen2();
 }
 
-List<Player> suggestedPlayers = <Player>[
-  Player('Mookie Betts', 'Home Run'),
-  Player('Aaron Judge', 'strike out'),
-  Player('Mike trout', 'Home Run'),
-  Player('Fernando Tatis jr', 'Home Run'),
-  Player('Ronald Acuna jr', 'Home Run'),
-  Player('Shohei Ohatani', 'Home Run'),
-  Player('Vladimir Guerrero Jr', 'Home Run'),
-  Player('JP Crawford', 'Home Run'),
-  Player('Ke Bryan Haze', 'Home Run'),
-  Player('Jazz Chisholm Jr.', 'Home Run'),
-  Player('Ian Happ ', 'Home Run'),
-  Player('Paul Goldshmit ', 'Home Run'),
-  Player('David Peralta ', 'Home Run'),
-  Player('Bo Bichette ', 'Home Run'),
-];
+class SearchScreen2 extends State<MySearchPage> {
 
-class SearchScreen extends State<MySearchPage> {
   final myController = TextEditingController();
+  bool selected = true;
   String name = "First name Last name";
+  late List<Player> _players;
+  late bool _loading;
 
-
-
+  Map<String, String> suggestedPlayers = {
+    "Mookie Betts": "Home Run",
+    'Aaron Judge': 'strike out',
+    'Mike Trout': 'Home Run',
+    'Fernando Tatis jr': 'Home Run',
+    'Ronald Acuna jr': 'Home Run',
+    'Shohei Ohatani': 'Home Run',
+    'Vladimir Guerrero Jr': 'Home Run',
+    "Bo Bichette": "strikeout",
+    "Javier Baez": "strikeout",
+    "Jazz Chisholm jr." : "single",
+    "Akill Badoo" : "flyout",
+  };
 
   @override
   void initState() {
     super.initState();
+    setState(() {
+      Services.getPlayers().then((players){
+        setState(() {
+          _players = players;
+          print("length returned is: " + players.length.toString());
+          _loading = false;
+        });
+      });
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Search'),
+        title:  Text(_loading ? 'loading...' : 'Search'),
         automaticallyImplyLeading: false,
       ),
       body: Center(
@@ -54,9 +64,7 @@ class SearchScreen extends State<MySearchPage> {
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            SizedBox(
-              height: 20.0,
-            ),
+            SizedBox(height: 20.0),
             // the searchBar
             Form(
               child: Container(
@@ -74,8 +82,9 @@ class SearchScreen extends State<MySearchPage> {
                       contentPadding: EdgeInsets.all(10)),
                   controller: myController,
                   onFieldSubmitted: (value) async {
-                    name = await callApi(myController.text);
-                    setState(() {});
+                    // name = await callApi(myController.text);
+                    // suggestedPlayers = {
+                    //   name: "Upcoming",
                   },
                   textInputAction: TextInputAction.search,
                 ),
@@ -92,12 +101,24 @@ class SearchScreen extends State<MySearchPage> {
             ),
             Expanded(
               child: ListView.builder(
-                  itemCount: 1,
+                  itemCount: null == _players ? 0 : _players.length,
                   itemBuilder: (context, index) {
+                    Player player = _players[index];
                     return ListTile(
-                        leading: const Icon(Icons.sports_baseball),
-                        trailing: Icon(Icons.add_box_outlined),
-                        title: Text(name));
+                      leading: const Icon(Icons.sports_baseball),
+                      title: Text("wahooo it works :( not really"),
+                      trailing: IconButton(
+                        color: Colors.blue,
+                        splashColor: Colors.blue,
+                        icon: Icon( selected ? Icons.add_box_outlined : Icons.add_box),
+                        onPressed: (){
+                          setState(() {
+                            selected = !selected;
+                            HomeScreen().addToMyPlayers(suggestedPlayers.keys.elementAt(index));
+                          });
+                        },
+                      ),
+                    );
                   }),
             )
           ],

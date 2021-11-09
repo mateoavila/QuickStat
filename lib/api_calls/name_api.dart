@@ -13,6 +13,7 @@ class Name{
     // ignore: prefer_typing_uninitialized_variables
     return Name(
       name: json['name_display_first_last'],
+
     );
   }
 }
