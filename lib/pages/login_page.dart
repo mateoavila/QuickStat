@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _LoginScreen createState() => _LoginScreen();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginScreen extends State<LoginPage> {
   void _toUserView() {
     //how to move to a new screen
     Navigator.push(

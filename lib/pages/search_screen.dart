@@ -1,4 +1,5 @@
 import 'package:batterup/pages/home_screen.dart';
+import 'package:batterup/pages/stat_screen.dart';
 
 import '../Services.dart';
 import '../api_calls/mlbapi.dart';
@@ -19,6 +20,7 @@ class SearchScreen extends State<MySearchPage> {
   final myController = TextEditingController();
   bool selected = true;
   String name = "First name Last name";
+  Map<String, String> fakeMyPlayers = {};
 
   Map<String, String> suggestedPlayers = {
     "Mookie Betts": "Home Run",
@@ -70,7 +72,7 @@ class SearchScreen extends State<MySearchPage> {
                       contentPadding: EdgeInsets.all(10)),
                   controller: myController,
                   onFieldSubmitted: (value)  async {
-                    name = await callApi(myController.text);
+                    name = await getNameApi(myController.text);
                     suggestedPlayers = {
                       name: "Upcoming",
                     };
@@ -103,11 +105,16 @@ class SearchScreen extends State<MySearchPage> {
                             selected ? Icons.add_box_outlined : Icons.add_box),
                         onPressed: () {
                           setState(() {
-                            //selected = !selected;
                             HomeScreen().addToMyPlayers(suggestedPlayers.keys.elementAt(index));
                           });
                         },
                       ),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => myStatPage(name: suggestedPlayers.keys.elementAt(index))),
+                        );
+                      },
                     );
                   }),
             )

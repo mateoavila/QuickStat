@@ -3,6 +3,7 @@ import 'pages/login_page.dart';
 import 'package:batterup/pages/signup_page.dart';
 import 'package:batterup/pages/user_view.dart';
 import 'package:flutter/material.dart';
+import 'pages/stat_screen.dart';
 
 //add this text
 void main(){
@@ -13,9 +14,11 @@ void main(){
 class MyApp extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return  MaterialApp(
       title:'BatterUp',
       home: LoginPage(),
+      //home: myStatPage(title: 'stats',),
+
     );
   }
 }
