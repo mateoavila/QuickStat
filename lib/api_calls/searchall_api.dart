@@ -1,6 +1,5 @@
 
-import 'package:batterup/api_calls/query_results_api.dart';
-
+import 'query_results_api.dart';
 class SearchAll{
   final QueryResults all;
   //final List<String> allMap;

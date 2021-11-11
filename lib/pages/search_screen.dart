@@ -1,11 +1,11 @@
 import 'package:batterup/pages/home_screen.dart';
 import 'package:batterup/pages/stat_screen.dart';
+import 'package:batterup/stat_api_calls/stat_api.dart';
 
-import '../Services.dart';
 import '../api_calls/mlbapi.dart';
-import '../player_list.dart';
 import 'package:flutter/material.dart';
-import '../players.dart';
+
+import '../player.dart';
 
 class MySearchPage extends StatefulWidget {
   const MySearchPage({Key? key, required this.title}) : super(key: key);
@@ -20,6 +20,7 @@ class SearchScreen extends State<MySearchPage> {
   final myController = TextEditingController();
   bool selected = true;
   String name = "First name Last name";
+  late Player player;
   Map<String, String> fakeMyPlayers = {};
 
   Map<String, String> suggestedPlayers = {
@@ -28,7 +29,7 @@ class SearchScreen extends State<MySearchPage> {
     'Mike Trout': 'Home Run',
     'Fernando Tatis jr': 'Home Run',
     'Ronald Acuna jr': 'Home Run',
-    'Shohei Ohatani': 'Home Run',
+    'Shohei Ohtani': 'Home Run',
     'Vladimir Guerrero Jr': 'Home Run',
     "Bo Bichette": "strikeout",
     "Javier Baez": "strikeout",
@@ -109,10 +110,11 @@ class SearchScreen extends State<MySearchPage> {
                           });
                         },
                       ),
-                      onTap: () {
+                      onTap: () async {
+                        player = await callStatApi(suggestedPlayers.keys.elementAt(index));
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => myStatPage(name: suggestedPlayers.keys.elementAt(index))),
+                          MaterialPageRoute(builder: (context) => myStatPage(name: suggestedPlayers.keys.elementAt(index), player: player)),
                         );
                       },
                     );

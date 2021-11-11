@@ -1,6 +1,4 @@
-
-import 'package:batterup/api_calls/row_api.dart';
-
+import 'row_api.dart';
 class QueryResults{
   final Row results;
   //final List<String> resultsMap;
