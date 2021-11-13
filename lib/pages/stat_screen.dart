@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:batterup/stat_api_calls/stat_api.dart';
+import 'package:batterup/stat_api_calls/statapi.dart';
 
 import '../player.dart';
+import 'help_screen.dart';
+
+// ignore: camel_case_types, must_be_immutable
+void _gotoHelpPage() {
+
+}
 
 class myStatPage extends StatelessWidget {
   myStatPage({Key? key, required this.name, required this.player})
@@ -14,11 +20,14 @@ class myStatPage extends StatelessWidget {
     initState();
   }
 
+
+
   @override
   Widget build(BuildContext context) {
+    double sopa = int.parse(player.so) / int.parse(player.tpa);
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text(name + "'s " + title),
         //automaticallyImplyLeading: false,
       ),
       body: Center(
@@ -32,19 +41,19 @@ class myStatPage extends StatelessWidget {
                 style: const TextStyle(
                   fontSize: 35,
                 )),
-            const SizedBox(height: 15.0),
+            const SizedBox(height: 25.0),
             Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      Text("Avg ",
+                      const Text("Avg ",
                           style: TextStyle(
                             fontSize: 25,
                           )),
                       Text(player.avg,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 25,
                           )),
                     ],
@@ -52,12 +61,12 @@ class myStatPage extends StatelessWidget {
                   Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      Text("OBP",
+                      const Text("OBP",
                           style: TextStyle(
                             fontSize: 25,
                           )),
                       Text(player.obp,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 25,
                           )),
                     ],
@@ -65,12 +74,12 @@ class myStatPage extends StatelessWidget {
                   Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      Text("SLG ",
+                      const Text("SLG ",
                           style: TextStyle(
                             fontSize: 25,
                           )),
                       Text(player.slg,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 25,
                           )),
                     ],
@@ -78,69 +87,126 @@ class myStatPage extends StatelessWidget {
                   Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      Text("OPS",
+                      const Text("OPS",
                           style: TextStyle(
                             fontSize: 25,
                           )),
                       Text(player.ops,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 25,
                           )),
                     ],
                   ),
                 ]),
-            const SizedBox(height: 17.0),
+            const SizedBox(height: 20.0),
             Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Column(
                     mainAxisSize: MainAxisSize.max,
-                    children: const [
-                      Text("RBI ",
+                    children: [
+                      const Text("RBI ",
                           style: TextStyle(
                             fontSize: 25,
                           )),
-                      Text("495 ",
-                          style: TextStyle(
-                            fontSize: 25,
-                          )),
-                    ],
-                  ),
-                  Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: const [
-                      Text("HR ",
-                          style: TextStyle(
-                            fontSize: 25,
-                          )),
-                      Text("154",
-                          style: TextStyle(
+                      Text(player.rbi,
+                          style: const TextStyle(
                             fontSize: 25,
                           )),
                     ],
                   ),
                   Column(
                     mainAxisSize: MainAxisSize.max,
-                    children: const [
-                      Text("BB ",
+                    children: [
+                      const Text("HR ",
                           style: TextStyle(
                             fontSize: 25,
                           )),
-                      Text("225 ",
-                          style: TextStyle(
+                      Text(player.hr,
+                          style: const TextStyle(
                             fontSize: 25,
                           )),
                     ],
                   ),
                   Column(
                     mainAxisSize: MainAxisSize.max,
-                    children: const [
-                      Text("xBH ",
+                    children: [
+                      const Text("BB ",
                           style: TextStyle(
                             fontSize: 25,
                           )),
-                      Text("344 ",
+                      Text(player.bb,
+                          style: const TextStyle(
+                            fontSize: 25,
+                          )),
+                    ],
+                  ),
+                  Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      const Text("xBH ",
                           style: TextStyle(
+                            fontSize: 25,
+                          )),
+                      Text(player.xbh,
+                          style: const TextStyle(
+                            fontSize: 25,
+                          )),
+                    ],
+                  ),
+                ]),
+            const SizedBox(height: 20.0),
+            Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      const Text("SO/PA ",
+                          style: TextStyle(
+                            fontSize: 25,
+                          )),
+                      Text(sopa.toStringAsFixed(3),
+                          style: const TextStyle(
+                            fontSize: 25,
+                          )),
+                    ],
+                  ),
+                  Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      const Text("BABIP",
+                          style: TextStyle(
+                            fontSize: 25,
+                          )),
+                      Text(player.babip,
+                          style: const TextStyle(
+                            fontSize: 25,
+                          )),
+                    ],
+                  ),
+                  Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      const Text("PPA",
+                          style: TextStyle(
+                            fontSize: 25,
+                          )),
+                      Text(player.ppa,
+                          style: const TextStyle(
+                            fontSize: 25,
+                          )),
+                    ],
+                  ),
+                  Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      const Text("GO/AO",
+                          style: TextStyle(
+                            fontSize: 25,
+                          )),
+                      Text(player.goao,
+                          style: const TextStyle(
                             fontSize: 25,
                           )),
                     ],
@@ -149,6 +215,20 @@ class myStatPage extends StatelessWidget {
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => MyHelpPage(title: "Help")),
+          );
+        },
+        //tooltip: 'Increment',
+        child: const Icon(
+            Icons.help,
+          size: 40,
+        ),
+      ),
+
     );
   }
 }

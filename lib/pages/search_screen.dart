@@ -1,6 +1,7 @@
+import 'package:batterup/LocalDB.dart';
 import 'package:batterup/pages/home_screen.dart';
 import 'package:batterup/pages/stat_screen.dart';
-import 'package:batterup/stat_api_calls/stat_api.dart';
+import 'package:batterup/stat_api_calls/statapi.dart';
 
 import '../api_calls/mlbapi.dart';
 import 'package:flutter/material.dart';
@@ -72,7 +73,7 @@ class SearchScreen extends State<MySearchPage> {
                       border: InputBorder.none,
                       contentPadding: EdgeInsets.all(10)),
                   controller: myController,
-                  onFieldSubmitted: (value)  async {
+                  onFieldSubmitted: (value) async {
                     name = await getNameApi(myController.text);
                     suggestedPlayers = {
                       name: "Upcoming",
@@ -96,28 +97,43 @@ class SearchScreen extends State<MySearchPage> {
               child: ListView.builder(
                   itemCount: suggestedPlayers.length,
                   itemBuilder: (context, index) {
-                    return ListTile(
-                      leading: const Icon(Icons.sports_baseball),
-                      title: Text(suggestedPlayers.keys.elementAt(index)),
-                      trailing: IconButton(
-                        color: Colors.blue,
-                        splashColor: Colors.blue,
-                        icon: Icon(
-                            selected ? Icons.add_box_outlined : Icons.add_box),
-                        onPressed: () {
-                          setState(() {
-                            HomeScreen().addToMyPlayers(suggestedPlayers.keys.elementAt(index));
-                          });
-                        },
-                      ),
-                      onTap: () async {
-                        player = await callStatApi(suggestedPlayers.keys.elementAt(index));
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => myStatPage(name: suggestedPlayers.keys.elementAt(index), player: player)),
-                        );
-                      },
+                    if (suggestedPlayers.keys.elementAt(index) == 'error') {
+                     return  const Text(
+                          'error occurred: Type players full name or search new player',
+                         style: TextStyle(fontSize: 20, )
                     );
+                    } else {
+                      return ListTile(
+                        leading: const Icon(Icons.sports_baseball),
+                        title: Text(suggestedPlayers.keys.elementAt(index)),
+                        trailing: IconButton(
+                          color: Colors.blue,
+                          splashColor: Colors.blue,
+                          icon: Icon(selected
+                              ? Icons.add_box_outlined
+                              : Icons.add_box),
+                          onPressed: () {
+                            setState(() {
+                              HomeScreen().addToMyPlayers(
+                                  suggestedPlayers.keys.elementAt(index));
+                            });
+                          },
+                        ),
+                        onTap: () async {
+                          player = await callStatApi(
+                              suggestedPlayers.keys.elementAt(index));
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => myStatPage(
+                                    name: suggestedPlayers.keys.elementAt(index),
+                                    player: player
+                                )
+                            ),
+                          );
+                        },
+                      );
+                    }
                   }),
             )
           ],

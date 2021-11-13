@@ -1,8 +1,8 @@
-import 'dart:collection';
+import 'package:batterup/pages/stat_screen.dart';
+import 'package:batterup/stat_api_calls/statapi.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:batterup/services.dart';
-import 'dart:convert';
+
+import '../player.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({
@@ -17,7 +17,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class HomeScreen extends State<MyHomePage> {
-  Map<String, String> myPlayers = Map();
+  static Map<String, String> myPlayers = {};
+  late Player player;
 
   void addToMyPlayers(String name) {
     myPlayers[name] = 'upcoming';
@@ -58,10 +59,17 @@ class HomeScreen extends State<MyHomePage> {
                   itemBuilder: (BuildContext context, int index) {
                     return ListTile(
                         leading: const Icon(Icons.sports_baseball),
-                        trailing: Text(
-                          myPlayers.values.elementAt(index),
-                          style:
-                              const TextStyle(color: Colors.blue, fontSize: 15),
+                        trailing: IconButton(
+                          color: Colors.blue,
+                          splashColor: Colors.blue,
+                          icon: Icon(
+                              Icons.arrow_forward_outlined),
+                          onPressed: () async {
+                            player = await callStatApi(myPlayers.keys.elementAt(index));
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => myStatPage(name: myPlayers.keys.elementAt(index), player: player)),
+                            );                          },
                         ),
                         title: Text(myPlayers.keys.elementAt(index)));
                   }),

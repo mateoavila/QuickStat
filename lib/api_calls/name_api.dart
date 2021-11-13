@@ -9,9 +9,17 @@ class Name{
 
   factory Name.fromJson(Map<String, dynamic> json){
     // ignore: prefer_typing_uninitialized_variables
-    return Name(
-      name: json['name_display_first_last'],
-      playerID: json['player_id'],
-    );
+    try{
+      return Name(
+        name: json['name_display_first_last'],
+        playerID: json['player_id'],
+      );
+    }catch(e){
+      return Name(
+        name: 'error',
+        playerID: 'DNE',
+      );
+    }
+
   }
 }
