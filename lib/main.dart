@@ -14,10 +14,9 @@ void main(){
 class MyApp extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return  const MaterialApp(
       title:'BatterUp',
-      home: LoginPage(),
-      //home: myStatPage(title: 'stats',),
+      home: MyUserPage(title: 'BatterUp'),
 
     );
   }

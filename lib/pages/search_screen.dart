@@ -1,6 +1,7 @@
 import 'package:batterup/LocalDB.dart';
 import 'package:batterup/pages/home_screen.dart';
 import 'package:batterup/pages/stat_screen.dart';
+import 'package:batterup/playeradd.dart';
 import 'package:batterup/stat_api_calls/statapi.dart';
 
 import '../api_calls/mlbapi.dart';
@@ -22,21 +23,20 @@ class SearchScreen extends State<MySearchPage> {
   bool selected = true;
   String name = "First name Last name";
   late Player player;
-  Map<String, String> fakeMyPlayers = {};
 
-  Map<String, String> suggestedPlayers = {
-    "Mookie Betts": "Home Run",
-    'Aaron Judge': 'strike out',
-    'Mike Trout': 'Home Run',
-    'Fernando Tatis jr': 'Home Run',
-    'Ronald Acuna jr': 'Home Run',
-    'Shohei Ohtani': 'Home Run',
-    'Vladimir Guerrero Jr': 'Home Run',
-    "Bo Bichette": "strikeout",
-    "Javier Baez": "strikeout",
-    "Jazz Chisholm jr.": "single",
-    "Akill Badoo": "flyout",
-  };
+  List<PlayerAdd> suggestedPlayers = [
+    PlayerAdd("Mookie betts"),
+    PlayerAdd("Aaron Judge"),
+    PlayerAdd("Mike Trout"),
+    PlayerAdd("Fernando Tatis Jr."),
+    PlayerAdd('Ronald Acuna Jr'),
+    PlayerAdd('Shohei Ohtani'),
+    PlayerAdd('Vladimir Gurrero Jr.'),
+    PlayerAdd('Bo Bichette'),
+    PlayerAdd('Javier Baez'),
+    PlayerAdd('Jazz Chisholm Jr.'),
+    PlayerAdd('Akill Badoo'),
+  ];
 
   @override
   void initState() {
@@ -75,9 +75,8 @@ class SearchScreen extends State<MySearchPage> {
                   controller: myController,
                   onFieldSubmitted: (value) async {
                     name = await getNameApi(myController.text);
-                    suggestedPlayers = {
-                      name: "Upcoming",
-                    };
+                    suggestedPlayers.clear();
+                    suggestedPlayers.add(PlayerAdd(name));
                     setState(() {});
                   },
                   textInputAction: TextInputAction.search,
@@ -97,39 +96,40 @@ class SearchScreen extends State<MySearchPage> {
               child: ListView.builder(
                   itemCount: suggestedPlayers.length,
                   itemBuilder: (context, index) {
-                    if (suggestedPlayers.keys.elementAt(index) == 'error') {
-                     return  const Text(
+                    if (suggestedPlayers[index].name == 'error') {
+                      return const Text(
                           'error occurred: Type players full name or search new player',
-                         style: TextStyle(fontSize: 20, )
-                    );
+                          style: TextStyle(
+                            fontSize: 20,
+                          ));
                     } else {
                       return ListTile(
                         leading: const Icon(Icons.sports_baseball),
-                        title: Text(suggestedPlayers.keys.elementAt(index)),
+                        title: Text(suggestedPlayers[index].name),
                         trailing: IconButton(
                           color: Colors.blue,
                           splashColor: Colors.blue,
-                          icon: Icon(selected
+                          icon: Icon(suggestedPlayers[index].isSelected
                               ? Icons.add_box_outlined
                               : Icons.add_box),
                           onPressed: () {
                             setState(() {
-                              HomeScreen().addToMyPlayers(
-                                  suggestedPlayers.keys.elementAt(index));
+                              suggestedPlayers[index].isSelected =
+                                  !suggestedPlayers[index].isSelected;
+                              HomeScreen()
+                                  .addToMyPlayers(suggestedPlayers[index].name);
                             });
                           },
                         ),
                         onTap: () async {
-                          player = await callStatApi(
-                              suggestedPlayers.keys.elementAt(index));
+                          player =
+                              await callStatApi(suggestedPlayers[index].name);
                           Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => myStatPage(
-                                    name: suggestedPlayers.keys.elementAt(index),
-                                    player: player
-                                )
-                            ),
+                                    name: suggestedPlayers[index].name,
+                                    player: player)),
                           );
                         },
                       );

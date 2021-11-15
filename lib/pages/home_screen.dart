@@ -57,21 +57,32 @@ class HomeScreen extends State<MyHomePage> {
               child: ListView.builder(
                   itemCount: myPlayers.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return ListTile(
-                        leading: const Icon(Icons.sports_baseball),
-                        trailing: IconButton(
-                          color: Colors.blue,
-                          splashColor: Colors.blue,
-                          icon: Icon(
-                              Icons.arrow_forward_outlined),
-                          onPressed: () async {
-                            player = await callStatApi(myPlayers.keys.elementAt(index));
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => myStatPage(name: myPlayers.keys.elementAt(index), player: player)),
-                            );                          },
-                        ),
-                        title: Text(myPlayers.keys.elementAt(index)));
+                    return Dismissible(
+                      onDismissed: (direction) {
+                        myPlayers.removeWhere((key, value) =>
+                            key == myPlayers.keys.elementAt(index));
+                      },
+                      key: Key(myPlayers.keys.elementAt(index)),
+                      child: ListTile(
+                          leading: const Icon(Icons.sports_baseball),
+                          trailing: IconButton(
+                            color: Colors.blue,
+                            splashColor: Colors.blue,
+                            icon: const Icon(Icons.arrow_forward_outlined),
+                            onPressed: () async {
+                              player = await callStatApi(
+                                  myPlayers.keys.elementAt(index));
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => myStatPage(
+                                        name: myPlayers.keys.elementAt(index),
+                                        player: player)),
+                              );
+                            },
+                          ),
+                          title: Text(myPlayers.keys.elementAt(index))),
+                    );
                   }),
             )
           ],
