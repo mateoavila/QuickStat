@@ -43,8 +43,8 @@ class _MySignupPageState extends State<MySignupPage> {
                   height: 30,
                 ),
                 Text(
-                  'BatterUp',
-                  style: TextStyle(fontSize: 55, color: Colors.blueAccent),
+                  'QuickStat',
+                  style: TextStyle(fontSize: 55, color: Colors.blue.shade800),
                 )
               ],
             ),
@@ -88,10 +88,10 @@ class _MySignupPageState extends State<MySignupPage> {
               icon: const Icon(Icons.arrow_downward),
               iconSize: 20,
               elevation: 16,
-              style: const TextStyle(color: Colors.blueAccent),
+              style:  TextStyle(color: Colors.blue.shade800),
               underline: Container(
                 height: 2,
-                color: Colors.blueAccent,
+                color: Colors.blue.shade800,
               ),
               onChanged: (String? newValue) {
                 setState(() {
@@ -142,7 +142,7 @@ class _MySignupPageState extends State<MySignupPage> {
                 ButtonTheme(
                   height: 50,
                   minWidth: 400,
-                  disabledColor: Colors.blueAccent,
+                  disabledColor: Colors.blue.shade800,
                   child: RaisedButton(
                       disabledElevation: 4.0,
                       onPressed: _toLogin,

@@ -17,8 +17,6 @@ class MyUserPage extends StatefulWidget {
 class _MyUserPageState extends State<MyUserPage> {
   int _selectedIndex = 0;
 
-
-
   final List<Widget> _widgetOptions = <Widget>[
     //the HOME screen index 0
     MyHomePage(title: 'home'),
@@ -37,9 +35,7 @@ class _MyUserPageState extends State<MyUserPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-        // title: const Text('BatterUp'),
-       //),
+
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
@@ -59,7 +55,7 @@ class _MyUserPageState extends State<MyUserPage> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.blue,
+        selectedItemColor: Colors.blue.shade800,
         onTap: _onItemTapped,
       ),
     );

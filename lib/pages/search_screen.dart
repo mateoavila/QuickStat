@@ -3,10 +3,8 @@ import 'package:batterup/pages/home_screen.dart';
 import 'package:batterup/pages/stat_screen.dart';
 import 'package:batterup/playeradd.dart';
 import 'package:batterup/stat_api_calls/statapi.dart';
-
 import '../api_calls/mlbapi.dart';
 import 'package:flutter/material.dart';
-
 import '../player.dart';
 
 class MySearchPage extends StatefulWidget {
@@ -48,6 +46,7 @@ class SearchScreen extends State<MySearchPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Search'),
+        backgroundColor: Colors.blue.shade800,
         automaticallyImplyLeading: false,
       ),
       body: Center(
@@ -64,7 +63,7 @@ class SearchScreen extends State<MySearchPage> {
                 height: 50,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                    border: Border.all(width: 1, color: Colors.blue),
+                    border: Border.all(width: 1, color: Colors.blue.shade800),
                     borderRadius: BorderRadius.circular(20)),
                 child: TextFormField(
                   decoration: const InputDecoration(
@@ -87,8 +86,8 @@ class SearchScreen extends State<MySearchPage> {
             const SizedBox(
               height: 20.0,
             ),
-            const Text('Suggested Players',
-                style: TextStyle(fontSize: 30, color: Colors.blueAccent)),
+             Text('Suggested Players',
+                style: TextStyle(fontSize: 30, color: Colors.blue.shade800)),
             const SizedBox(
               height: 15.0,
             ),
@@ -107,8 +106,8 @@ class SearchScreen extends State<MySearchPage> {
                         leading: const Icon(Icons.sports_baseball),
                         title: Text(suggestedPlayers[index].name),
                         trailing: IconButton(
-                          color: Colors.blue,
-                          splashColor: Colors.blue,
+                          color: Colors.blue.shade800,
+                          splashColor: Colors.blue.shade800,
                           icon: Icon(suggestedPlayers[index].isSelected
                               ? Icons.add_box_outlined
                               : Icons.add_box),

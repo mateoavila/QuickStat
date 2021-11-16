@@ -15,13 +15,14 @@ class _MyHelpPageState extends State<MyHelpPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        backgroundColor: Colors.blue.shade800,
       ),
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
             const SizedBox(height: 5),
-            const Text('Stat Definitions',
-                style: TextStyle(fontSize: 30, color: Colors.blueAccent)),
+             Text('Stat Definitions',
+                style: TextStyle(fontSize: 30, color: Colors.blue.shade800)),
             const SizedBox(height: 15),
 
                   Row(

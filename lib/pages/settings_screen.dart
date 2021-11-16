@@ -30,6 +30,7 @@ class SettingsScreen extends State<MySettingsPage> {
     return Scaffold(
         appBar: AppBar(
         title: const Text('Settings'),
+          backgroundColor: Colors.blue.shade800,
           automaticallyImplyLeading: false,
     ),
       body:  Center(
@@ -50,10 +51,10 @@ class SettingsScreen extends State<MySettingsPage> {
             icon: const Icon(Icons.arrow_downward),
             iconSize: 20,
             elevation: 16,
-            style: const TextStyle(color: Colors.blueAccent),
+            style:  TextStyle(color: Colors.blue.shade800),
             underline: Container(
               height: 2,
-              color: Colors.blueAccent,
+              color: Colors.blue.shade800,
             ),
             onChanged: (String? newValue) {
               setState(() {
@@ -80,10 +81,10 @@ class SettingsScreen extends State<MySettingsPage> {
             icon: const Icon(Icons.arrow_downward),
             iconSize: 20,
             elevation: 16,
-            style: const TextStyle(color: Colors.blueAccent),
+            style:  TextStyle(color: Colors.blue.shade800),
             underline: Container(
               height: 2,
-              color: Colors.blueAccent,
+              color: Colors.blue.shade800,
             ),
             onChanged: (String? newValue) {
               setState(() {
@@ -101,12 +102,13 @@ class SettingsScreen extends State<MySettingsPage> {
           ),
           SizedBox(height: 300.0,),
           ButtonTheme(
-            height: 30,
-            minWidth: 20,
-            disabledColor: Colors.blueAccent,
+            height: 40,
+            minWidth: 100,
+            disabledColor: Colors.blue.shade800,
             child:  RaisedButton(
                 disabledElevation: 4.0,
                 onPressed: _toLogin,
+                color: Colors.blue.shade800,
                 // do things here to check in firebase
                 child: Text(
                   'Log out',

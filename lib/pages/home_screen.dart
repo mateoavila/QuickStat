@@ -5,10 +5,7 @@ import 'package:flutter/material.dart';
 import '../player.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({
-    Key? key,
-    required this.title,
-  }) : super(key: key);
+  const MyHomePage({Key? key, required this.title,}) : super(key: key);
 
   final String title;
 
@@ -29,14 +26,14 @@ class HomeScreen extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
-    print("keys: " + myPlayers.keys.toString());
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('BatterUp'),
+        title: const Text('QuickStat'),
+        backgroundColor: Colors.blue.shade800,
         automaticallyImplyLeading: false,
       ),
       body: Center(
@@ -48,8 +45,11 @@ class HomeScreen extends State<MyHomePage> {
             const SizedBox(
               height: 15.0,
             ),
-            const Text('My Players',
-                style: TextStyle(fontSize: 30, color: Colors.blueAccent)),
+            Text('My Players',
+                style: TextStyle(
+                  fontSize: 30,
+                  color: Colors.blue.shade800,
+                )),
             const SizedBox(
               height: 15.0,
             ),
@@ -64,10 +64,13 @@ class HomeScreen extends State<MyHomePage> {
                       },
                       key: Key(myPlayers.keys.elementAt(index)),
                       child: ListTile(
-                          leading: const Icon(Icons.sports_baseball),
+                          leading: Icon(
+                            Icons.sports_baseball,
+                            color: Colors.blue.shade800,
+                          ),
                           trailing: IconButton(
-                            color: Colors.blue,
-                            splashColor: Colors.blue,
+                            color: Colors.blue.shade800,
+                            splashColor: Colors.blue.shade800,
                             icon: const Icon(Icons.arrow_forward_outlined),
                             onPressed: () async {
                               player = await callStatApi(

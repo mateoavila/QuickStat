@@ -15,7 +15,7 @@ class _LoginScreen extends State<LoginPage> {
       context,
       MaterialPageRoute(
           builder: (context) => const MyUserPage(
-                title: 'BatterUp',
+                title: 'QuickStat',
               )),
     );
   }
@@ -54,7 +54,7 @@ class _LoginScreen extends State<LoginPage> {
                 ),
                 Text(
                   'BatterUp',
-                  style: TextStyle(fontSize: 55, color: Colors.blueAccent),
+                  style: TextStyle(fontSize: 55, color: Colors.blue.shade800),
                 )
               ],
             ),
@@ -87,7 +87,7 @@ class _LoginScreen extends State<LoginPage> {
                 ButtonTheme(
                   height: 50,
                   minWidth: 400,
-                  disabledColor: Colors.blueAccent,
+                  disabledColor: Colors.blue.shade800,
                   child: RaisedButton(
                       disabledElevation: 4.0,
                       onPressed: _toUserView,
@@ -103,7 +103,7 @@ class _LoginScreen extends State<LoginPage> {
                 ButtonTheme(
                   height: 50,
                   minWidth: 400,
-                  disabledColor: Colors.blueAccent,
+                  disabledColor: Colors.blue.shade800,
                   child: RaisedButton(
                       onPressed: _toSignup,
                       child: Text(
