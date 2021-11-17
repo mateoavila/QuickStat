@@ -23,7 +23,9 @@ class _MyUserPageState extends State<MyUserPage> {
     //the SEARCH Screen index 1
     MySearchPage(title: 'search'),
     // the SETTINGS Screen index 2
-    MySettingsPage(title: 'settings',),
+    MySettingsPage(
+      title: 'settings',
+    ),
   ];
 
   void _onItemTapped(int index) {
@@ -35,7 +37,6 @@ class _MyUserPageState extends State<MyUserPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
@@ -55,12 +56,10 @@ class _MyUserPageState extends State<MyUserPage> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.blue.shade800,
+        selectedItemColor: Color(0xff002D72),
+
         onTap: _onItemTapped,
       ),
     );
   }
 }
-
-
-

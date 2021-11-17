@@ -46,7 +46,7 @@ class SearchScreen extends State<MySearchPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Search'),
-        backgroundColor: Colors.blue.shade800,
+        backgroundColor: Color(0xff002D72),
         automaticallyImplyLeading: false,
       ),
       body: Center(
@@ -62,15 +62,17 @@ class SearchScreen extends State<MySearchPage> {
                 width: 400,
                 height: 50,
                 alignment: Alignment.center,
+                
                 decoration: BoxDecoration(
-                    border: Border.all(width: 1, color: Colors.blue.shade800),
-                    borderRadius: BorderRadius.circular(20)),
+                    border: Border.all(width: 1, color: Color(0xff002D72)),
+                    borderRadius: BorderRadius.circular(25)
+                ),
                 child: TextFormField(
                   decoration: const InputDecoration(
                       labelText: "Search",
                       suffixIcon: Icon(Icons.search),
                       border: InputBorder.none,
-                      contentPadding: EdgeInsets.all(10)),
+                      contentPadding: EdgeInsets.all(20)),
                   controller: myController,
                   onFieldSubmitted: (value) async {
                     name = await getNameApi(myController.text);
@@ -86,8 +88,8 @@ class SearchScreen extends State<MySearchPage> {
             const SizedBox(
               height: 20.0,
             ),
-             Text('Suggested Players',
-                style: TextStyle(fontSize: 30, color: Colors.blue.shade800)),
+            Text('Suggested Players',
+                style: TextStyle(fontSize: 30, color: Color(0xff002D72))),
             const SizedBox(
               height: 15.0,
             ),
@@ -103,11 +105,16 @@ class SearchScreen extends State<MySearchPage> {
                           ));
                     } else {
                       return ListTile(
-                        leading: const Icon(Icons.sports_baseball),
+                        shape: RoundedRectangleBorder(
+                            side: BorderSide(color: Colors.white, width: 3),
+                            borderRadius: BorderRadius.circular(15)),
+                        tileColor: Color(0xff002D72).withOpacity(0.05),
+                        leading: const Icon(Icons.sports_baseball,
+                            color: Color(0xffD50032)),
                         title: Text(suggestedPlayers[index].name),
                         trailing: IconButton(
-                          color: Colors.blue.shade800,
-                          splashColor: Colors.blue.shade800,
+                          color: Color(0xff002D72),
+                          splashColor: Color(0xff002D72),
                           icon: Icon(suggestedPlayers[index].isSelected
                               ? Icons.add_box_outlined
                               : Icons.add_box),

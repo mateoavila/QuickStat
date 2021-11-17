@@ -28,6 +28,7 @@ class myStatPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(name + "'s " + title),
+        backgroundColor: Color(0xff002D72),
         //automaticallyImplyLeading: false,
       ),
       body: Center(

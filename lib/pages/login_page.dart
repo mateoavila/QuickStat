@@ -54,7 +54,7 @@ class _LoginScreen extends State<LoginPage> {
                 ),
                 Text(
                   'BatterUp',
-                  style: TextStyle(fontSize: 55, color: Colors.blue.shade800),
+                  style: TextStyle(fontSize: 55, color: Color(0xff002D72)),
                 )
               ],
             ),
@@ -87,7 +87,7 @@ class _LoginScreen extends State<LoginPage> {
                 ButtonTheme(
                   height: 50,
                   minWidth: 400,
-                  disabledColor: Colors.blue.shade800,
+                  disabledColor: Color(0xff002D72),
                   child: RaisedButton(
                       disabledElevation: 4.0,
                       onPressed: _toUserView,
@@ -103,7 +103,7 @@ class _LoginScreen extends State<LoginPage> {
                 ButtonTheme(
                   height: 50,
                   minWidth: 400,
-                  disabledColor: Colors.blue.shade800,
+                  disabledColor: Color(0xff002D72),
                   child: RaisedButton(
                       onPressed: _toSignup,
                       child: Text(

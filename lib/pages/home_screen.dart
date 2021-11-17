@@ -33,7 +33,7 @@ class HomeScreen extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('QuickStat'),
-        backgroundColor: Colors.blue.shade800,
+        backgroundColor: Color(0xff002D72),
         automaticallyImplyLeading: false,
       ),
       body: Center(
@@ -45,10 +45,10 @@ class HomeScreen extends State<MyHomePage> {
             const SizedBox(
               height: 15.0,
             ),
-            Text('My Players',
+            const Text('My Players',
                 style: TextStyle(
                   fontSize: 30,
-                  color: Colors.blue.shade800,
+                  color: Color(0xff002D72),
                 )),
             const SizedBox(
               height: 15.0,
@@ -56,6 +56,7 @@ class HomeScreen extends State<MyHomePage> {
             Expanded(
               child: ListView.builder(
                   itemCount: myPlayers.length,
+                  padding: EdgeInsets.fromLTRB(5,0,5,5),
                   itemBuilder: (BuildContext context, int index) {
                     return Dismissible(
                       onDismissed: (direction) {
@@ -64,13 +65,18 @@ class HomeScreen extends State<MyHomePage> {
                       },
                       key: Key(myPlayers.keys.elementAt(index)),
                       child: ListTile(
-                          leading: Icon(
+                          shape: RoundedRectangleBorder(
+                              side: BorderSide(color: Colors.white, width: 3),
+                              borderRadius: BorderRadius.circular(17)),
+
+                          tileColor: Color(0xff002D72).withOpacity(0.05),
+                          leading: const Icon(
                             Icons.sports_baseball,
-                            color: Colors.blue.shade800,
+                            color: Color(0xffD50032),
                           ),
                           trailing: IconButton(
-                            color: Colors.blue.shade800,
-                            splashColor: Colors.blue.shade800,
+                            color: const Color(0xff002D72),
+                            splashColor: const Color(0xff002D72),
                             icon: const Icon(Icons.arrow_forward_outlined),
                             onPressed: () async {
                               player = await callStatApi(
