@@ -1,4 +1,4 @@
-import 'package:batterup/stat_api_calls/stat_query_results.dart';
+import 'package:quickstat/stat_api_calls/stat_query_results.dart';
 
 class Careerhitting{
   final StatsQueryResults hitting;

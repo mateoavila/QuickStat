@@ -1,5 +1,5 @@
 
-import 'package:batterup/stat_api_calls/stat_row_api.dart';
+import 'package:quickstat/stat_api_calls/stat_row_api.dart';
 
 class StatsQueryResults{
   final StatsRow results;

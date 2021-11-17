@@ -1,8 +1,8 @@
-import 'package:batterup/LocalDB.dart';
-import 'package:batterup/pages/home_screen.dart';
-import 'package:batterup/pages/stat_screen.dart';
-import 'package:batterup/playeradd.dart';
-import 'package:batterup/stat_api_calls/statapi.dart';
+import 'package:quickstat/LocalDB.dart';
+import 'package:quickstat/pages/home_screen.dart';
+import 'package:quickstat/pages/stat_screen.dart';
+import 'package:quickstat/playeradd.dart';
+import 'package:quickstat/stat_api_calls/statapi.dart';
 import '../api_calls/mlbapi.dart';
 import 'package:flutter/material.dart';
 import '../player.dart';

@@ -1,6 +1,6 @@
 import 'dart:convert';
-import 'package:batterup/api_calls/mlbapi.dart';
-import 'package:batterup/stat_api_calls/stat_query_results.dart';
+import 'package:quickstat/api_calls/mlbapi.dart';
+import 'package:quickstat/stat_api_calls/stat_query_results.dart';
 import '../player.dart';
 import 'data.dart';
 import 'stat_row_api.dart';

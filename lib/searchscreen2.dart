@@ -1,4 +1,4 @@
-import 'package:batterup/pages/home_screen.dart';
+import 'package:quickstat/pages/home_screen.dart';
 
 import 'Services.dart';
 import 'api_calls/mlbapi.dart';

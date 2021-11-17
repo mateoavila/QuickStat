@@ -1,5 +1,5 @@
 
-import 'package:batterup/api_calls/name_api.dart';
+import 'package:quickstat/api_calls/name_api.dart';
 
 class Row{
   final Name row;

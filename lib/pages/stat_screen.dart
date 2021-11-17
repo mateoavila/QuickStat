@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:batterup/stat_api_calls/statapi.dart';
+import 'package:quickstat/stat_api_calls/statapi.dart';
 
 import '../player.dart';
 import 'help_screen.dart';

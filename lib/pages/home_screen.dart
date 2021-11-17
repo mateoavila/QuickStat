@@ -1,5 +1,5 @@
-import 'package:batterup/pages/stat_screen.dart';
-import 'package:batterup/stat_api_calls/statapi.dart';
+import 'package:quickstat/pages/stat_screen.dart';
+import 'package:quickstat/stat_api_calls/statapi.dart';
 import 'package:flutter/material.dart';
 
 import '../player.dart';

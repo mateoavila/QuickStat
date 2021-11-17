@@ -1,5 +1,5 @@
-import 'package:batterup/pages/signup_page.dart';
-import 'package:batterup/pages/user_view.dart';
+import 'package:quickstat/pages/signup_page.dart';
+import 'package:quickstat/pages/user_view.dart';
 import '../main.dart';
 import 'package:flutter/material.dart';
 

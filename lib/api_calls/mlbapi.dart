@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:batterup/api_calls/query_results_api.dart';
-import 'package:batterup/api_calls/row_api.dart';
+import 'package:quickstat/api_calls/query_results_api.dart';
+import 'package:quickstat/api_calls/row_api.dart';
 import 'package:http/http.dart' as http;
 import 'name_api.dart';
 import 'searchall_api.dart';
