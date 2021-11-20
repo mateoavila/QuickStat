@@ -5,9 +5,6 @@ import '../player.dart';
 import 'help_screen.dart';
 
 // ignore: camel_case_types, must_be_immutable
-void _gotoHelpPage() {
-
-}
 
 class myStatPage extends StatelessWidget {
   myStatPage({Key? key, required this.name, required this.player})
@@ -43,6 +40,7 @@ class myStatPage extends StatelessWidget {
                   fontSize: 35,
                 )),
             const SizedBox(height: 25.0),
+            //ROW 1
             Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
@@ -100,6 +98,7 @@ class myStatPage extends StatelessWidget {
                   ),
                 ]),
             const SizedBox(height: 20.0),
+            //ROW 2
             Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
@@ -156,6 +155,66 @@ class myStatPage extends StatelessWidget {
                     ],
                   ),
                 ]),
+
+            //ROW 4
+            const SizedBox(height: 20.0),
+            Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      const Text("TB ",
+                          style: TextStyle(
+                            fontSize: 25,
+                          )),
+                      Text(player.tb,
+                          style: const TextStyle(
+                            fontSize: 25,
+                          )),
+                    ],
+                  ),
+                  Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      const Text("SB",
+                          style: TextStyle(
+                            fontSize: 25,
+                          )),
+                      Text(player.sb,
+                          style: const TextStyle(
+                            fontSize: 25,
+                          )),
+                    ],
+                  ),
+                  Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      const Text("IBB",
+                          style: TextStyle(
+                            fontSize: 25,
+                          )),
+                      Text(player.ibb,
+                          style: const TextStyle(
+                            fontSize: 25,
+                          )),
+                    ],
+                  ),
+                  Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      const Text("R",
+                          style: TextStyle(
+                            fontSize: 25,
+                          )),
+                      Text(player.r,
+                          style: const TextStyle(
+                            fontSize: 25,
+                          )),
+                    ],
+                  ),
+                ]),
+            //ROW 3
             const SizedBox(height: 20.0),
             Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,

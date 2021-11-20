@@ -12,6 +12,10 @@ class Data {
   final String BABIP;
   final String PPA;
   final String GOAO;
+  final String TB;
+  final String SB;
+  final String IBB;
+  final String R;
 
   Data({
     required this.Avg,
@@ -27,6 +31,10 @@ class Data {
     required this.BABIP,
     required this.PPA,
     required this.GOAO,
+    required this.TB,
+    required this.SB,
+    required this.IBB,
+    required this.R,
   });
 
   factory Data.fromJson(Map<String, dynamic> json) {
@@ -45,6 +53,10 @@ class Data {
       BABIP: json['babip'],
       PPA: json['ppa'],
       GOAO: json['go_ao'],
+      TB: json['tb'],
+      SB: json['sb'],
+      IBB: json['ibb'],
+      R: json['r'],
     );
   }
 }

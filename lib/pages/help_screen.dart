@@ -172,6 +172,78 @@ class _MyHelpPageState extends State<MyHelpPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: const <Widget>[
+                Text('TB:',
+                    style: TextStyle(
+                      fontSize: 23,
+                    )),
+                SizedBox(width: 37),
+                Flexible(
+                  child: Text(
+                      'Stands for total bases. \nThis stat counts all the bases the player has successfully claimed possition of',
+                      style: TextStyle(
+                        fontSize: 16,
+                      )),
+                ),
+              ],
+            ),
+            const SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: const <Widget>[
+                Text('SB:',
+                    style: TextStyle(
+                      fontSize: 23,
+                    )),
+                SizedBox(width: 35),
+                Flexible(
+                  child: Text(
+                      'Stands for stolen basses. \nThis stat counts all the bases the player has successfully stolen, a stolen base is when a player runs from one base to another while the ball has not been hit',
+                      style: TextStyle(
+                        fontSize: 16,
+                      )),
+                ),
+              ],
+            ),
+            const SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: const <Widget>[
+                Text('IBB:',
+                    style: TextStyle(
+                      fontSize: 23,
+                    )),
+                SizedBox(width: 25),
+                Flexible(
+                  child: Text(
+                      'Stands for intentional base on balls. \nThis stat counts all the times the players was intentionally walked',
+                      style: TextStyle(
+                        fontSize: 16,
+                      )),
+                ),
+              ],
+            ),
+            const SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: const <Widget>[
+                Text('R:',
+                    style: TextStyle(
+                      fontSize: 23,
+                    )),
+                SizedBox(width: 45),
+                Flexible(
+                  child: Text(
+                      'Stands for Runs. \nThis stat counts all the runs the player scored by reaching home plate',
+                      style: TextStyle(
+                        fontSize: 16,
+                      )),
+                ),
+              ],
+            ),
+            const SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: const <Widget>[
                 Text('so/pa:',
                     style: TextStyle(
                       fontSize: 23,

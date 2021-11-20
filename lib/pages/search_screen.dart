@@ -23,7 +23,7 @@ class SearchScreen extends State<MySearchPage> {
   late Player player;
 
   List<PlayerAdd> suggestedPlayers = [
-    PlayerAdd("Mookie betts"),
+    PlayerAdd("Mookie Betts"),
     PlayerAdd("Aaron Judge"),
     PlayerAdd("Mike Trout"),
     PlayerAdd("Fernando Tatis Jr."),
@@ -69,7 +69,7 @@ class SearchScreen extends State<MySearchPage> {
                 ),
                 child: TextFormField(
                   decoration: const InputDecoration(
-                      labelText: "Search",
+                      labelText: "search",
                       suffixIcon: Icon(Icons.search),
                       border: InputBorder.none,
                       contentPadding: EdgeInsets.all(20)),
