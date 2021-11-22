@@ -114,7 +114,7 @@ class SearchScreen2 extends State<MySearchPage> {
                         onPressed: (){
                           setState(() {
                             selected = !selected;
-                            HomeScreen().addToMyPlayers(suggestedPlayers.keys.elementAt(index));
+                            //HomeScreen().addToMyPlayers(suggestedPlayers.keys.elementAt(index));
                           });
                         },
                       ),

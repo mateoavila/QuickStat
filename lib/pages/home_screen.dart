@@ -1,7 +1,8 @@
 import 'package:quickstat/pages/stat_screen.dart';
 import 'package:quickstat/stat_api_calls/statapi.dart';
 import 'package:flutter/material.dart';
-
+// ignore: import_of_legacy_library_into_null_safe
+import 'package:shared_preferences/shared_preferences.dart';
 import '../player.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -14,18 +15,36 @@ class MyHomePage extends StatefulWidget {
 }
 
 class HomeScreen extends State<MyHomePage> {
-  static Map<String, String> myPlayers = {};
+  static List<String> myPlayers = [];
   late Player player;
+  static late SharedPreferences prefs;
 
-  void addToMyPlayers(String name) {
-    myPlayers[name] = 'upcoming';
-    print(name + " added");
-    print(myPlayers);
-  }
+
 
   @override
   void initState() {
+    initPrefs();
     super.initState();
+  }
+
+  void initPrefs() async {
+    prefs = await SharedPreferences.getInstance();
+    myPlayers = _getList();
+  }
+
+  static Future<bool> _saveList() async {
+    return await prefs.setStringList("playerlist", myPlayers);
+  }
+
+  List<String> _getList() {
+    return prefs.getStringList("playerlist");
+  }
+
+  static void addToMyPlayers(String name) {
+    myPlayers.add(name);
+    _saveList();
+    print(name + " added");
+    print(myPlayers);
   }
 
   @override
@@ -60,10 +79,10 @@ class HomeScreen extends State<MyHomePage> {
                   itemBuilder: (BuildContext context, int index) {
                     return Dismissible(
                       onDismissed: (direction) {
-                        myPlayers.removeWhere((key, value) =>
-                            key == myPlayers.keys.elementAt(index));
-                      },
-                      key: Key(myPlayers.keys.elementAt(index)),
+                        myPlayers.remove(myPlayers[index]);
+                        _saveList();
+                        },
+                      key: Key(myPlayers[index]),
                       child: ListTile(
                           shape: RoundedRectangleBorder(
                               side: BorderSide(color: Colors.white, width: 3),
@@ -80,17 +99,18 @@ class HomeScreen extends State<MyHomePage> {
                             icon: const Icon(Icons.arrow_forward_outlined),
                             onPressed: () async {
                               player = await callStatApi(
-                                  myPlayers.keys.elementAt(index));
+                                  myPlayers[index]);
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => myStatPage(
-                                        name: myPlayers.keys.elementAt(index),
+                                        name: myPlayers[index],
                                         player: player)),
                               );
                             },
                           ),
-                          title: Text(myPlayers.keys.elementAt(index))),
+                          title: Text(myPlayers[index])
+                      ),
                     );
                   }),
             )

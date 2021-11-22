@@ -122,14 +122,12 @@ class SearchScreen extends State<MySearchPage> {
                             setState(() {
                               suggestedPlayers[index].isSelected =
                                   !suggestedPlayers[index].isSelected;
-                              HomeScreen()
-                                  .addToMyPlayers(suggestedPlayers[index].name);
+                              HomeScreen.addToMyPlayers(suggestedPlayers[index].name);
                             });
                           },
                         ),
                         onTap: () async {
-                          player =
-                              await callStatApi(suggestedPlayers[index].name);
+                          player = await callStatApi(suggestedPlayers[index].name);
                           Navigator.push(
                             context,
                             MaterialPageRoute(
