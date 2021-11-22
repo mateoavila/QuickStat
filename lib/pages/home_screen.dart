@@ -25,12 +25,19 @@ class HomeScreen extends State<MyHomePage> {
   @override
   void initState() {
     initPrefs();
+    print("init prefs done");
     super.initState();
   }
 
   void initPrefs() async {
     prefs = await SharedPreferences.getInstance();
-    myPlayers = _getList();
+    if(_getList() == null){
+      myPlayers = ["Mookie Betts"];
+      setState(() {});
+    }else{
+      myPlayers = _getList();
+      setState(() {});
+    }
   }
 
   static Future<bool> _saveList() async {
@@ -82,6 +89,7 @@ class HomeScreen extends State<MyHomePage> {
                       onDismissed: (direction) {
                         myPlayers.remove(myPlayers[index]);
                         _saveList();
+                        setState(() {});
                       },
                       key: Key(myPlayers[index]),
                       child: ListTile(

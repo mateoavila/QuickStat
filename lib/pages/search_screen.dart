@@ -24,16 +24,16 @@ class SearchScreen extends State<MySearchPage> {
 
   List<PlayerAdd> suggestedPlayers = [
     PlayerAdd("Mookie Betts"),
+    PlayerAdd('Shohei Ohtani'),
     PlayerAdd("Aaron Judge"),
     PlayerAdd("Mike Trout"),
     PlayerAdd("Fernando Tatis Jr."),
     PlayerAdd('Ronald Acuna Jr'),
-    PlayerAdd('Shohei Ohtani'),
-    PlayerAdd('Vladimir Gurrero Jr.'),
+    PlayerAdd('Bryce Harper'),
+    PlayerAdd('Vladimir Guerrero Jr.'),
     PlayerAdd('Bo Bichette'),
-    PlayerAdd('Javier Baez'),
     PlayerAdd('Jazz Chisholm Jr.'),
-    PlayerAdd('Akill Badoo'),
+    PlayerAdd('Akil Baddoo'),
   ];
 
   @override
@@ -69,8 +69,8 @@ class SearchScreen extends State<MySearchPage> {
                 ),
                 child: TextFormField(
                   decoration: const InputDecoration(
-                      labelText: "search",
-                      suffixIcon: Icon(Icons.search),
+                      labelText: "",
+                      prefixIcon: Icon(Icons.search),
                       border: InputBorder.none,
                       contentPadding: EdgeInsets.all(20)),
                   controller: myController,
