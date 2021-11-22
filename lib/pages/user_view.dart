@@ -23,9 +23,9 @@ class _MyUserPageState extends State<MyUserPage> {
     //the SEARCH Screen index 1
     MySearchPage(title: 'search'),
     // the SETTINGS Screen index 2
-    MySettingsPage(
-      title: 'settings',
-    ),
+    // MySettingsPage(
+    //   title: 'settings',
+    // ),
   ];
 
   void _onItemTapped(int index) {
@@ -50,10 +50,10 @@ class _MyUserPageState extends State<MyUserPage> {
             icon: Icon(Icons.search),
             label: 'Search',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
-          ),
+          // BottomNavigationBarItem(
+          //   icon: Icon(Icons.settings),
+          //   label: 'Settings',
+          // ),
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Color(0xff002D72),

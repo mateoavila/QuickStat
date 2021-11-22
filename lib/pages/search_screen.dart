@@ -120,9 +120,12 @@ class SearchScreen extends State<MySearchPage> {
                               : Icons.add_box),
                           onPressed: () {
                             setState(() {
-                              suggestedPlayers[index].isSelected =
-                                  !suggestedPlayers[index].isSelected;
-                              HomeScreen.addToMyPlayers(suggestedPlayers[index].name);
+                              suggestedPlayers[index].isSelected = !suggestedPlayers[index].isSelected;
+                              if(HomeScreen.myPlayers.contains(suggestedPlayers[index].name)){
+                                print('already exists');
+                              }else{
+                                HomeScreen.addToMyPlayers(suggestedPlayers[index].name);
+                              }
                             });
                           },
                         ),

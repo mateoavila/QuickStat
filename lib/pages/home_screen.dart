@@ -6,7 +6,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../player.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title,}) : super(key: key);
+  const MyHomePage({
+    Key? key,
+    required this.title,
+  }) : super(key: key);
 
   final String title;
 
@@ -18,8 +21,6 @@ class HomeScreen extends State<MyHomePage> {
   static List<String> myPlayers = [];
   late Player player;
   static late SharedPreferences prefs;
-
-
 
   @override
   void initState() {
@@ -75,19 +76,18 @@ class HomeScreen extends State<MyHomePage> {
             Expanded(
               child: ListView.builder(
                   itemCount: myPlayers.length,
-                  padding: EdgeInsets.fromLTRB(5,0,5,5),
+                  padding: EdgeInsets.fromLTRB(5, 0, 5, 5),
                   itemBuilder: (BuildContext context, int index) {
                     return Dismissible(
                       onDismissed: (direction) {
                         myPlayers.remove(myPlayers[index]);
                         _saveList();
-                        },
+                      },
                       key: Key(myPlayers[index]),
                       child: ListTile(
                           shape: RoundedRectangleBorder(
                               side: BorderSide(color: Colors.white, width: 3),
                               borderRadius: BorderRadius.circular(17)),
-
                           tileColor: Color(0xff002D72).withOpacity(0.05),
                           leading: const Icon(
                             Icons.sports_baseball,
@@ -98,8 +98,7 @@ class HomeScreen extends State<MyHomePage> {
                             splashColor: const Color(0xff002D72),
                             icon: const Icon(Icons.arrow_forward_outlined),
                             onPressed: () async {
-                              player = await callStatApi(
-                                  myPlayers[index]);
+                              player = await callStatApi(myPlayers[index]);
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
@@ -109,8 +108,7 @@ class HomeScreen extends State<MyHomePage> {
                               );
                             },
                           ),
-                          title: Text(myPlayers[index])
-                      ),
+                          title: Text(myPlayers[index])),
                     );
                   }),
             )
