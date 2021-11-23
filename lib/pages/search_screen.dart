@@ -99,7 +99,7 @@ class SearchScreen extends State<MySearchPage> {
                   itemBuilder: (context, index) {
                     if (suggestedPlayers[index].name == 'error') {
                       return const Text(
-                          'error occurred: Type players full name or search new player',
+                          'error occurred: \nDo not include space at the end of the name. \nType players full name or search new player',
                           style: TextStyle(
                             fontSize: 20,
                           ));
