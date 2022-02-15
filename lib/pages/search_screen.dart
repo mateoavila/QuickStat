@@ -1,11 +1,14 @@
 import 'package:quickstat/LocalDB.dart';
+import 'package:quickstat/api_pitching_calls/pitchingApi.dart';
 import 'package:quickstat/pages/home_screen.dart';
-import 'package:quickstat/pages/stat_screen.dart';
+import 'package:quickstat/pages/hitting_stat_screen.dart';
+import 'package:quickstat/pages/pitching_stat_screen.dart';
 import 'package:quickstat/playeradd.dart';
-import 'package:quickstat/stat_api_calls/statapi.dart';
+import 'package:quickstat/api_hitting_calls/hittingApi.dart';
 import '../api_calls/mlbapi.dart';
 import 'package:flutter/material.dart';
-import '../player.dart';
+import '../hittter.dart';
+import '../pitcher.dart';
 
 class MySearchPage extends StatefulWidget {
   const MySearchPage({Key? key, required this.title}) : super(key: key);
@@ -20,7 +23,7 @@ class SearchScreen extends State<MySearchPage> {
   final myController = TextEditingController();
   bool selected = true;
   String name = "First name Last name";
-  late Player player;
+  late Hitter player;
 
   List<PlayerAdd> suggestedPlayers = [
     PlayerAdd("Mookie Betts"),
@@ -62,11 +65,9 @@ class SearchScreen extends State<MySearchPage> {
                 width: 400,
                 height: 50,
                 alignment: Alignment.center,
-                
                 decoration: BoxDecoration(
                     border: Border.all(width: 1, color: Color(0xff002D72)),
-                    borderRadius: BorderRadius.circular(25)
-                ),
+                    borderRadius: BorderRadius.circular(25)),
                 child: TextFormField(
                   decoration: const InputDecoration(
                       labelText: "",
@@ -120,24 +121,44 @@ class SearchScreen extends State<MySearchPage> {
                               : Icons.add_box),
                           onPressed: () {
                             setState(() {
-                              suggestedPlayers[index].isSelected = !suggestedPlayers[index].isSelected;
-                              if(HomeScreen.myPlayers.contains(suggestedPlayers[index].name)){
+                              suggestedPlayers[index].isSelected =
+                                  !suggestedPlayers[index].isSelected;
+                              if (HomeScreen.myPlayers
+                                  .contains(suggestedPlayers[index].name)) {
                                 print('already exists');
-                              }else{
-                                HomeScreen.addToMyPlayers(suggestedPlayers[index].name);
+                              } else {
+                                HomeScreen.addToMyPlayers(
+                                    suggestedPlayers[index].name);
                               }
                             });
                           },
                         ),
                         onTap: () async {
-                          player = await callStatApi(suggestedPlayers[index].name);
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => myStatPage(
-                                    name: suggestedPlayers[index].name,
-                                    player: player)),
-                          );
+                          String findPosition = await getPositionApi(
+                              suggestedPlayers[index].name);
+                          int position = int.parse(findPosition);
+
+                          if (position == 1) {
+                            Pitcher pitcher = await callPitchingApi(suggestedPlayers[index].name);
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => myPitchingStatPage(
+                                      name: suggestedPlayers[index].name,
+                                      player: pitcher)),
+                            );
+                          } else {
+                            player = await callHittingApi(
+                                suggestedPlayers[index].name);
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => myHittingStatPage(
+                                      name: suggestedPlayers[index].name,
+                                      player: player)),
+                            );
+                          }
+                          ;
                         },
                       );
                     }

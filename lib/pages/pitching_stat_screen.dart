@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:quickstat/stat_api_calls/statapi.dart';
+import 'package:quickstat/api_hitting_calls/hittingApi.dart';
 
-import '../player.dart';
+import '../hittter.dart';
+import '../pitcher.dart';
 import 'help_screen.dart';
 
 // ignore: camel_case_types, must_be_immutable
 
-class myStatPage extends StatelessWidget {
-  myStatPage({Key? key, required this.name, required this.player})
+class myPitchingStatPage extends StatelessWidget {
+  myPitchingStatPage({Key? key, required this.name, required this.player})
       : super(key: key);
   String name;
-  Player player;
+  Pitcher player;
   final String title = 'Stats';
 
   void initState() {
@@ -21,7 +22,7 @@ class myStatPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double sopa = int.parse(player.so) / int.parse(player.tpa);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(name + "'s " + title),
@@ -47,11 +48,11 @@ class myStatPage extends StatelessWidget {
                   Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      const Text("Avg ",
+                      const Text("ERA",
                           style: TextStyle(
                             fontSize: 25,
                           )),
-                      Text(player.avg,
+                      Text("test",
                           style: const TextStyle(
                             fontSize: 25,
                           )),
@@ -64,7 +65,7 @@ class myStatPage extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 25,
                           )),
-                      Text(player.obp,
+                      Text("test",
                           style: const TextStyle(
                             fontSize: 25,
                           )),
@@ -77,7 +78,7 @@ class myStatPage extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 25,
                           )),
-                      Text(player.slg,
+                      Text("test",
                           style: const TextStyle(
                             fontSize: 25,
                           )),
@@ -90,7 +91,7 @@ class myStatPage extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 25,
                           )),
-                      Text(player.ops,
+                      Text("test",
                           style: const TextStyle(
                             fontSize: 25,
                           )),
@@ -109,7 +110,7 @@ class myStatPage extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 25,
                           )),
-                      Text(player.rbi,
+                      Text("test",
                           style: const TextStyle(
                             fontSize: 25,
                           )),
@@ -122,7 +123,7 @@ class myStatPage extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 25,
                           )),
-                      Text(player.hr,
+                      Text("test",
                           style: const TextStyle(
                             fontSize: 25,
                           )),
@@ -135,7 +136,7 @@ class myStatPage extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 25,
                           )),
-                      Text(player.bb,
+                      Text("test",
                           style: const TextStyle(
                             fontSize: 25,
                           )),
@@ -148,7 +149,7 @@ class myStatPage extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 25,
                           )),
-                      Text(player.xbh,
+                      Text("test",
                           style: const TextStyle(
                             fontSize: 25,
                           )),
@@ -168,7 +169,7 @@ class myStatPage extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 25,
                           )),
-                      Text(player.tb,
+                      Text("test",
                           style: const TextStyle(
                             fontSize: 25,
                           )),
@@ -181,7 +182,7 @@ class myStatPage extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 25,
                           )),
-                      Text(player.sb,
+                      Text("test",
                           style: const TextStyle(
                             fontSize: 25,
                           )),
@@ -194,7 +195,7 @@ class myStatPage extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 25,
                           )),
-                      Text(player.ibb,
+                      Text("test",
                           style: const TextStyle(
                             fontSize: 25,
                           )),
@@ -207,7 +208,7 @@ class myStatPage extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 25,
                           )),
-                      Text(player.r,
+                      Text("test",
                           style: const TextStyle(
                             fontSize: 25,
                           )),
@@ -226,7 +227,7 @@ class myStatPage extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 25,
                           )),
-                      Text(sopa.toStringAsFixed(3),
+                      Text("test",
                           style: const TextStyle(
                             fontSize: 25,
                           )),
@@ -239,7 +240,7 @@ class myStatPage extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 25,
                           )),
-                      Text(player.babip,
+                      Text("test",
                           style: const TextStyle(
                             fontSize: 25,
                           )),
@@ -252,7 +253,7 @@ class myStatPage extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 25,
                           )),
-                      Text(player.ppa,
+                      Text("test",
                           style: const TextStyle(
                             fontSize: 25,
                           )),
@@ -265,7 +266,7 @@ class myStatPage extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 25,
                           )),
-                      Text(player.goao,
+                      Text("test",
                           style: const TextStyle(
                             fontSize: 25,
                           )),
@@ -284,7 +285,7 @@ class myStatPage extends StatelessWidget {
         },
         //tooltip: 'Increment',
         child: const Icon(
-            Icons.help,
+          Icons.help,
           size: 40,
         ),
       ),

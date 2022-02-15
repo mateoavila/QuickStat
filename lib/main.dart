@@ -3,7 +3,7 @@ import 'pages/login_page.dart';
 import 'package:quickstat/pages/signup_page.dart';
 import 'package:quickstat/pages/user_view.dart';
 import 'package:flutter/material.dart';
-import 'pages/stat_screen.dart';
+import 'pages/hitting_stat_screen.dart';
 
 //add this text
 void main(){

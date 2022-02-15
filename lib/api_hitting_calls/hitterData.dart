@@ -1,4 +1,4 @@
-class Data {
+class HitterData {
   final String Avg;
   final String OBP;
   final String SLG;
@@ -16,8 +16,9 @@ class Data {
   final String SB;
   final String IBB;
   final String R;
+  final String ERA;
 
-  Data({
+  HitterData({
     required this.Avg,
     required this.OBP,
     required this.SLG,
@@ -35,11 +36,12 @@ class Data {
     required this.SB,
     required this.IBB,
     required this.R,
+    required this.ERA,
   });
 
-  factory Data.fromJson(Map<String, dynamic> json) {
+  factory HitterData.fromJson(Map<String, dynamic> json) {
     // ignore: prefer_typing_uninitialized_variables
-    return Data(
+    return HitterData(
       Avg: json['avg'],
       OBP: json['obp'],
       SLG: json['slg'],
@@ -57,6 +59,8 @@ class Data {
       SB: json['sb'],
       IBB: json['ibb'],
       R: json['r'],
+
+      ERA: json['era'],
     );
   }
 }

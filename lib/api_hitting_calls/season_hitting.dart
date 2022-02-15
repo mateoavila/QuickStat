@@ -1,7 +1,7 @@
-import 'package:quickstat/stat_api_calls/stat_query_results.dart';
+import 'package:quickstat/api_hitting_calls/hitting_query_results.dart';
 
 class seasonHitting{
-  final StatsQueryResults hitting;
+  final HittingQueryResults hitting;
   //final List<String> allMap;
 
   seasonHitting({
@@ -12,7 +12,7 @@ class seasonHitting{
   factory seasonHitting.fromJson(Map<String, dynamic> json){
 
     return seasonHitting(
-      hitting: StatsQueryResults.fromJson(json['sport_hitting_tm']),
+      hitting: HittingQueryResults.fromJson(json['sport_hitting_tm']),
     );
   }
 }

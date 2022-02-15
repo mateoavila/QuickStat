@@ -37,3 +37,19 @@ Future<String> getPIDApi(String name) async {
 
   return player.playerID.toString();
 }
+
+Future<String> getPositionApi(String name) async {
+  String link = "http://lookup-service-prod.mlb.com/json/named.search_player_all.bam?sport_code=%27mlb%27&active_sw=%27Y%27&name_part=%27" + name + "%25%27";
+  var response = await http.get(link);
+  var body = response.body;
+
+  SearchAll search = SearchAll.fromJson(jsonDecode(body));
+  QueryResults results = search.all;
+  Row row = results.results;
+  Name player = row.row;
+
+  print('position: ');
+  print(player.position.toString());
+
+  return player.position.toString();
+}
