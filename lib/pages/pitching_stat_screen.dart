@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quickstat/api_hitting_calls/hittingApi.dart';
+import 'package:quickstat/pages/help_pitcher_screen.dart';
 
 import '../hittter.dart';
 import '../pitcher.dart';
@@ -52,7 +53,7 @@ class myPitchingStatPage extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 25,
                           )),
-                      Text("test",
+                      Text(player.ERA,
                           style: const TextStyle(
                             fontSize: 25,
                           )),
@@ -61,11 +62,11 @@ class myPitchingStatPage extends StatelessWidget {
                   Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      const Text("OBP",
+                      const Text("whip",
                           style: TextStyle(
                             fontSize: 25,
                           )),
-                      Text("test",
+                      Text(player.whip,
                           style: const TextStyle(
                             fontSize: 25,
                           )),
@@ -74,11 +75,11 @@ class myPitchingStatPage extends StatelessWidget {
                   Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      const Text("SLG ",
+                      const Text("K/BB ",
                           style: TextStyle(
                             fontSize: 25,
                           )),
-                      Text("test",
+                      Text(player.kbb,
                           style: const TextStyle(
                             fontSize: 25,
                           )),
@@ -87,11 +88,11 @@ class myPitchingStatPage extends StatelessWidget {
                   Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      const Text("OPS",
+                      const Text("babip",
                           style: TextStyle(
                             fontSize: 25,
                           )),
-                      Text("test",
+                      Text(player.babip,
                           style: const TextStyle(
                             fontSize: 25,
                           )),
@@ -106,11 +107,11 @@ class myPitchingStatPage extends StatelessWidget {
                   Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      const Text("RBI ",
+                      const Text("hr/9",
                           style: TextStyle(
                             fontSize: 25,
                           )),
-                      Text("test",
+                      Text(player.hr9,
                           style: const TextStyle(
                             fontSize: 25,
                           )),
@@ -119,11 +120,11 @@ class myPitchingStatPage extends StatelessWidget {
                   Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      const Text("HR ",
+                      const Text("h/9",
                           style: TextStyle(
                             fontSize: 25,
                           )),
-                      Text("test",
+                      Text(player.h9,
                           style: const TextStyle(
                             fontSize: 25,
                           )),
@@ -132,11 +133,11 @@ class myPitchingStatPage extends StatelessWidget {
                   Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      const Text("BB ",
+                      const Text("bb/9",
                           style: TextStyle(
                             fontSize: 25,
                           )),
-                      Text("test",
+                      Text(player.bb9,
                           style: const TextStyle(
                             fontSize: 25,
                           )),
@@ -145,11 +146,11 @@ class myPitchingStatPage extends StatelessWidget {
                   Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      const Text("xBH ",
+                      const Text("K%",
                           style: TextStyle(
                             fontSize: 25,
                           )),
-                      Text("test",
+                      Text(player.spct,
                           style: const TextStyle(
                             fontSize: 25,
                           )),
@@ -165,11 +166,11 @@ class myPitchingStatPage extends StatelessWidget {
                   Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      const Text("TB ",
+                      const Text("PIP",
                           style: TextStyle(
                             fontSize: 25,
                           )),
-                      Text("test",
+                      Text(player.pip,
                           style: const TextStyle(
                             fontSize: 25,
                           )),
@@ -178,11 +179,11 @@ class myPitchingStatPage extends StatelessWidget {
                   Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      const Text("SB",
+                      const Text("PPA",
                           style: TextStyle(
                             fontSize: 25,
                           )),
-                      Text("test",
+                      Text(player.ppa,
                           style: const TextStyle(
                             fontSize: 25,
                           )),
@@ -191,11 +192,11 @@ class myPitchingStatPage extends StatelessWidget {
                   Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      const Text("IBB",
+                      const Text("ip",
                           style: TextStyle(
                             fontSize: 25,
                           )),
-                      Text("test",
+                      Text(player.ip,
                           style: const TextStyle(
                             fontSize: 25,
                           )),
@@ -204,11 +205,11 @@ class myPitchingStatPage extends StatelessWidget {
                   Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      const Text("R",
+                      const Text("W%",
                           style: TextStyle(
                             fontSize: 25,
                           )),
-                      Text("test",
+                      Text(player.wpct,
                           style: const TextStyle(
                             fontSize: 25,
                           )),
@@ -223,11 +224,11 @@ class myPitchingStatPage extends StatelessWidget {
                   Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      const Text("SO/PA ",
+                      const Text("gidp",
                           style: TextStyle(
                             fontSize: 25,
                           )),
-                      Text("test",
+                      Text(player.gidp,
                           style: const TextStyle(
                             fontSize: 25,
                           )),
@@ -236,11 +237,11 @@ class myPitchingStatPage extends StatelessWidget {
                   Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      const Text("BABIP",
+                      const Text("SV",
                           style: TextStyle(
                             fontSize: 25,
                           )),
-                      Text("test",
+                      Text(player.sv,
                           style: const TextStyle(
                             fontSize: 25,
                           )),
@@ -249,11 +250,11 @@ class myPitchingStatPage extends StatelessWidget {
                   Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      const Text("PPA",
+                      const Text("go/ao",
                           style: TextStyle(
                             fontSize: 25,
                           )),
-                      Text("test",
+                      Text(player.go_ao,
                           style: const TextStyle(
                             fontSize: 25,
                           )),
@@ -262,11 +263,11 @@ class myPitchingStatPage extends StatelessWidget {
                   Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      const Text("GO/AO",
+                      const Text("g",
                           style: TextStyle(
                             fontSize: 25,
                           )),
-                      Text("test",
+                      Text(player.g,
                           style: const TextStyle(
                             fontSize: 25,
                           )),
@@ -280,7 +281,7 @@ class myPitchingStatPage extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => MyHelpPage(title: "Help")),
+            MaterialPageRoute(builder: (context) => MyHelpPitcherPage(title: "Help")),
           );
         },
         //tooltip: 'Increment',

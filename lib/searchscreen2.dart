@@ -1,6 +1,5 @@
 import 'package:quickstat/pages/home_screen.dart';
 
-import 'Services.dart';
 import 'api_calls/mlbapi.dart';
 import 'player_list.dart';
 import 'package:flutter/material.dart';
@@ -40,15 +39,7 @@ class SearchScreen2 extends State<MySearchPage> {
   @override
   void initState() {
     super.initState();
-    setState(() {
-      Services.getPlayers().then((players){
-        setState(() {
-          _players = players;
-          print("length returned is: " + players.length.toString());
-          _loading = false;
-        });
-      });
-    });
+
   }
 
   @override

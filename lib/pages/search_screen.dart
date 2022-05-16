@@ -76,10 +76,19 @@ class SearchScreen extends State<MySearchPage> {
                       contentPadding: EdgeInsets.all(20)),
                   controller: myController,
                   onFieldSubmitted: (value) async {
-                    name = await getNameApi(myController.text);
-                    suggestedPlayers.clear();
-                    suggestedPlayers.add(PlayerAdd(name));
-                    setState(() {});
+                    try{
+                      name = await getNameApi(value);
+                      suggestedPlayers.clear();
+                      suggestedPlayers.add(PlayerAdd(name));
+                      setState(() {});
+                    }catch(e){
+                      suggestedPlayers.clear();
+                      // 2 options
+                      // 1) return a list and replace suggested players
+                      // 2) clear the list and loop through and add to SP
+                      getListOfNameApi(value);
+                    }
+
                   },
                   textInputAction: TextInputAction.search,
                 ),

@@ -305,7 +305,7 @@ class _MyHelpPageState extends State<MyHelpPage> {
                 SizedBox(width: 5),
                 Flexible(
                   child: Text(
-                      'Stands for Ground out per Air out. \nThis stat shows if a player hits the ball in the air or on thr ground more often \nThe formula is ground outs / air outs ',
+                      'Stands for Ground out per Air out. \nThis stat shows if a player hits the ball in the air or on the ground more often \nThe formula is ground outs / air outs ',
                       style: TextStyle(
                         fontSize: 16,
                       )),

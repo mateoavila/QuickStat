@@ -20,7 +20,7 @@ Future<Pitcher> callPitchingApi(String name) async {
   PitcherData data = row.row;
 
 
-  Pitcher tempPlayer = Pitcher(data.ERA);
+  Pitcher tempPlayer = Pitcher(data.ERA, data.whip, data.kbb, data.babip, data.hr9, data.h9, data.bb9, data.spct, data.pip, data.ppa, data.ip, data.wpct, data.gidp, data.sv, data.go_ao, data.g,);
 
 
   return tempPlayer;
